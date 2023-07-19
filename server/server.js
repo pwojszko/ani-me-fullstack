@@ -1,10 +1,19 @@
 const express = require("express");
+const cors = require("cors");
+const {
+  connectToDB,
+  pushDataToDB,
+  readDataFromDB,
+} = require("./database/mongo.database");
+const { MongoClient } = require("mongodb");
 const app = (module.exports = express());
-var cors = require("cors");
-const jwt = require("jsonwebtoken");
+
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+
+readDataFromDB("users").then(console.log).catch(console.error);
 
 app.use("/api", require("./controllers/posts"));
 
