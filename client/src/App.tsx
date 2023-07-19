@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api")
+    fetch("http://localhost:5000/api/posts")
       .then((response) => {
         console.log(response);
       })
