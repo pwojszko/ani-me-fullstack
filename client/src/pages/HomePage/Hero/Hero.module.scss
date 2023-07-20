@@ -1,5 +1,5 @@
-@import "../../../../assets/scss/abstracts/variables";
-@import "../../../../assets/scss/abstracts/mixins";
+@import "../../../assets/scss/abstracts/variables";
+@import "../../../assets/scss/abstracts/mixins";
 
 .hero {
   display: flex;
@@ -7,9 +7,9 @@
   position: relative;
   min-height: 700px;
   padding: 50px 0 50px 0;
-  background-image: url("../../../../assets/images/hero-bg.webp");
+  background-image: url("../../../assets/images/hero-bg.webp");
   background-size: cover;
-  box-shadow: inset 100px 0px 50px -30px $color-dark-2;
+  box-shadow: inset 100px 0px 50px -30px $primary;
 
   @include md {
     margin-bottom: -100px;
@@ -20,14 +20,10 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      0deg,
-      rgba($color-dark-2, 1),
-      rgba($color-dark-2, 0.5)
-    );
+    background: linear-gradient(0deg, rgba($primary, 1), rgba($primary, 0.5));
   }
 
-  .hero__container {
+  .container {
     display: flex;
     justify-content: end;
     place-items: flex-start;
@@ -38,7 +34,7 @@
     padding: 0 $padding-1;
     text-align: right;
 
-    .hero__image {
+    .image {
       display: none;
 
       @include sm {
@@ -47,7 +43,8 @@
         border-right: 2px solid $color-1;
       }
     }
-    .hero__text {
+
+    .text {
       display: flex;
       flex-direction: column;
       place-items: flex-end;

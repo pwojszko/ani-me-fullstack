@@ -1,42 +1,78 @@
-@import "../../../../assets/scss/abstracts/variables";
+@import "../../../assets/scss/abstracts/variables";
+@import "../../../assets/scss/abstracts/mixins";
 
 .carousel {
+  position: relative;
   display: flex;
   margin-bottom: 10px;
-  overflow: hidden;
+  max-width: 100%;
 
-  .carousel__title-container {
+  .title-container {
     display: flex;
     flex-direction: column;
     place-items: center;
     position: relative;
     margin: 20px 10px 20px 10px;
 
-    .carousel__title {
+    .title {
       padding-bottom: 10px;
       writing-mode: vertical-rl;
     }
 
-    .carousel__line {
+    .line {
       flex: 1;
       background-color: $color-1;
       width: 2px;
     }
   }
 
-  .carousel__list {
-    display: flex;
-    flex: 1;
-    padding-bottom: 20px;
-    margin-bottom: -20px;
-    cursor: grab;
+  .button {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: 1;
+    padding: 25px;
+    background-color: $primary;
+    color: $light;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    transition: color 0.3s;
+    cursor: pointer;
 
-    .carousel__item {
+    &.left {
+      left: 75px;
+    }
+    &.right {
+      right: 45px;
+    }
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  .list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 225px;
+    gap: 25px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    padding: 12.5px 0;
+
+    &::-webkit-scrollbar {
+      height: 0px;
+      width: 0px;
+    }
+
+    .item {
       position: relative;
       transition: all 0.3s;
-      transform: scale(0.9);
+      scroll-snap-align: start;
 
-      .carousel__item-image {
+      .item-image {
         height: 320px;
         width: 225px;
         transition: all 0.3s;
@@ -44,7 +80,7 @@
         pointer-events: none;
       }
 
-      .carousel__item-title {
+      .item-title {
         display: flex;
         place-items: center;
         position: absolute;
@@ -60,8 +96,6 @@
       }
 
       &:hover {
-        transform: scale(1);
-
         &::before {
           height: 40%;
         }
@@ -70,13 +104,13 @@
           height: 40%;
         }
 
-        .carousel__item-title {
+        .item-title {
           opacity: 1;
         }
 
-        .carousel__item-image {
+        .item-image {
           filter: brightness(0.4);
-          transform: scale(1);
+          transform: scale(1.05);
         }
       }
     }

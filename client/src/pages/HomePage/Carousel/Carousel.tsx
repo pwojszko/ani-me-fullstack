@@ -1,15 +1,13 @@
-import { useParams } from "react-router-dom";
-import { skipToken } from "@reduxjs/toolkit/query/react";
-import { useGetAnimeCharactersQuery } from "../../../store/anime/animeService";
-import Character from "./Character";
-import styles from "./Characters.module.scss";
+import { Link } from "react-router-dom";
+import { useGetAnimeListQuery } from "../../../store/anime/animeService";
 import classNames from "classnames/bind";
+import styles from "./Carousel.module.scss";
+import { Anime } from "@store/anime/AnimeTypes";
 import { useRef } from "react";
 const cx = classNames.bind(styles);
 
-const Characters = () => {
-  const { id } = useParams();
-  const { data } = useGetAnimeCharactersQuery(id ?? skipToken);
+const Carousel = ({ path, title }: { path: string; title: string }) => {
+  const { data } = useGetAnimeListQuery(path);
   const ref = useRef<HTMLDivElement>(null);
 
   const handleScrollRight = () => {
@@ -33,7 +31,12 @@ const Characters = () => {
   };
 
   return (
-    <div className={cx("characters-wrapper")}>
+    <section className={cx("carousel")}>
+      <div className={cx("title-container")}>
+        <h2 className={cx("title")}>{title}</h2>
+        <div className={cx("line")}></div>
+      </div>
+
       <button
         className={cx("button", "left")}
         onClick={handleScrollLeft}
@@ -48,14 +51,22 @@ const Characters = () => {
       >
         {">"}
       </button>
-
-      <div className={cx("characters")} ref={ref}>
-        {data?.map((item) => (
-          <Character data={item} />
+      <div className={cx("list")} ref={ref}>
+        {data?.map((anime: Anime) => (
+          <div key={anime?.mal_id} className={cx("item")}>
+            <Link to={`/anime/${anime?.mal_id}`}>
+              <p className={cx("item-title")}>{anime?.title}</p>
+            </Link>
+            <img
+              className={cx("item-image")}
+              src={anime?.images?.webp?.image_url}
+              alt={anime?.title}
+            />
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Characters;
+export default Carousel;

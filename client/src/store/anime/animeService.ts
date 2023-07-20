@@ -18,9 +18,9 @@ export const animeApi = createApi({
         return response.data;
       },
     }),
-    getAnimeList: builder.query<Anime, string>({
+    getAnimeList: builder.query<Anime[], string>({
       query: (path) => path,
-      transformResponse: (response: { data: Anime }) => {
+      transformResponse: (response: { data: Anime[] }) => {
         return response.data;
       },
     }),

@@ -1,5 +1,5 @@
-import Hero from "./components/Hero/Hero";
-import Carousel from "./components/Carousel/Carousel";
+import Hero from "./Hero/Hero";
+import Carousel from "./Carousel/Carousel";
 import classNames from "classnames/bind";
 import styles from "./HomePage.module.scss";
 const cx = classNames.bind(styles);
