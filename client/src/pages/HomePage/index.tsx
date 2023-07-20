@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 export function HomePage() {
   return (
     <div className={cx("home-page", "grid__home-page")}>
-      <main className={cx("home-page__main")}>
+      <main className={cx("main")}>
         <Hero />
         <Carousel path="seasons/now" title="Current season" />
         <Carousel path="top/anime" title="Top anime" />

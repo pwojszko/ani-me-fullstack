@@ -15,6 +15,20 @@
   text-align: right;
 
   background-color: $color-dark-1;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    height: 50px;
+    width: 1000px;
+    right: -300px;
+    background-image: url("./patterns.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: rotate(-15deg);
+  }
 
   .footer__copyright {
     font-size: 1.2rem;

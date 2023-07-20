@@ -29,16 +29,17 @@
   .button {
     position: absolute;
     top: 50%;
-    translate: 0 -50%;
-    z-index: 1;
     padding: 25px;
+    z-index: 1;
+    translate: 0 -50%;
     background-color: $primary;
     color: $light;
     border: none;
     border-radius: 25px;
     font-size: 20px;
-    transition: color 0.3s;
+    transition: color, opacity 0.3s;
     cursor: pointer;
+    opacity: 0.7;
 
     &.left {
       left: 75px;
@@ -49,6 +50,7 @@
 
     &:hover {
       color: $red;
+      opacity: 1;
     }
   }
 

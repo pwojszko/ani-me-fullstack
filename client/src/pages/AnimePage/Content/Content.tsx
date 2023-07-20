@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import RateButtons from "../components/buttons/RateButton";
-import WatchedButton from "../components/buttons/WatchedButton";
+import RateButtons from "../buttons/RateButton";
+import WatchedButton from "../buttons/WatchedButton";
 import { useParams } from "react-router-dom";
 import styles from "./Content.module.scss";
 import classNames from "classnames/bind";
