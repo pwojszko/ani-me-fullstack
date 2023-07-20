@@ -5,7 +5,7 @@ import Video from "./Video/Video";
 import Parameters from "./Parameters/Parameters";
 import classNames from "classnames/bind";
 import styles from "./AnimePage.module.scss";
-import Content from "./Content";
+import Content from "./Content/Content";
 import Characters from "./Characters/Characters";
 const cx = classNames.bind(styles);
 
@@ -17,7 +17,7 @@ export const AnimePage = () => {
     <div className={cx("anime-page")}>
       <article className={cx("article")}>
         <p className={cx("watermark")}>{data?.title_japanese}</p>
-        {/* <Content data={data} /> */}
+        <Content data={data} />
         <Characters />
         <Parameters data={data} />
         <Video data={data} />

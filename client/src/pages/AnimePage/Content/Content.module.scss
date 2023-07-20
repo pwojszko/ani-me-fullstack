@@ -1,0 +1,50 @@
+@import "../../../assets/scss/abstracts/variables";
+@import "../../../assets/scss/abstracts/mixins";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 125px;
+  margin-bottom: 50px;
+
+  @include md {
+    flex-direction: row;
+    place-items: flex-start;
+  }
+
+  .container {
+    display: flex;
+
+    .image-container {
+      position: relative;
+      border: 2px solid $color-3;
+
+      .image {
+        position: relative;
+        padding: 10px;
+        margin: 0 0 -20px -20px;
+      }
+
+      .is-watched {
+        position: absolute;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        inset: auto auto -16px -20px;
+        width: 100px;
+        height: 100px;
+        background-color: $color-2;
+        clip-path: polygon(0 0, 100% 100%, 50% 100%, 0 50%);
+        font-weight: bold;
+
+        .is-watched-text {
+          position: absolute;
+          rotate: 45deg;
+          margin-left: -25px;
+          margin-bottom: -25px;
+        }
+      }
+    }
+  }
+}
