@@ -1,0 +1,21 @@
+@import "../../../assets/scss/abstracts/variables";
+@import "../../../assets/scss/abstracts/mixins";
+
+.parameters {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+  row-gap: 15px;
+  padding: 25px 0 0 0;
+  text-align: center;
+
+  .parameter {
+    padding: 20px;
+
+    .subtitle {
+      font-size: 2.5rem;
+      color: $color-1;
+      font-weight: bold;
+    }
+  }
+}

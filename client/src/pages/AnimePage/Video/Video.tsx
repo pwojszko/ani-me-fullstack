@@ -1,12 +1,15 @@
 import LoadingFrame from "../../../components/LoadingFrame/LoadingFrame";
 import type { Anime } from "@store/anime/AnimeTypes";
+import classNames from "classnames/bind";
+import styles from "./Video.module.scss";
+const cx = classNames.bind(styles);
 
-const Youtube = ({ data }: { data: Anime }) => {
+const Video = ({ data }: { data?: Anime }) => {
   const youtubeId = data?.trailer.youtube_id;
 
   return (
-    <div className="anime-page__video">
-      <div className="iframe-container">
+    <div className={cx("video")}>
+      <div className={cx("iframe-container")}>
         {youtubeId ? (
           <>
             <LoadingFrame text="" />
@@ -25,4 +28,4 @@ const Youtube = ({ data }: { data: Anime }) => {
   );
 };
 
-export default Youtube;
+export default Video;

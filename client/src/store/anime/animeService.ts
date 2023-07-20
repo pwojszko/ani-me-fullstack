@@ -12,8 +12,11 @@ export const animeApi = createApi({
         return response.data;
       },
     }),
-    getAnimeCharacters: builder.query<Character, string>({
+    getAnimeCharacters: builder.query<Character[], string>({
       query: (id) => `anime/${id}/characters`,
+      transformResponse: (response: { data: Character[] }) => {
+        return response.data;
+      },
     }),
     getAnimeList: builder.query<Anime, string>({
       query: (path) => path,

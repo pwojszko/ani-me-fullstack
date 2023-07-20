@@ -1,18 +1,40 @@
 export type Character = {
-  id?: number;
-  voice_actors: any;
-
   character: {
-    mal_id?: number;
-    name?: string;
+    mal_id: number;
+    url: string;
     images: {
+      jpg: {
+        image_url: string;
+      };
       webp: {
-        image_url?: string;
+        image_url: string;
+        small_image_url: string;
       };
     };
+    name: string;
   };
-
-  data?: any;
+  role: "Main" | "Supporting";
+  favorites: number;
+  voice_actors: {
+    person: {
+      mal_id: number;
+      url: string;
+      images: {
+        image_url: string;
+      };
+      name: string;
+    };
+    language:
+      | "Japanese"
+      | "English"
+      | "French"
+      | "German"
+      | "Hungarian"
+      | "Italian"
+      | "Korean"
+      | "Portuguese (BR)"
+      | "Spanish";
+  }[];
 };
 
 export type Anime = {

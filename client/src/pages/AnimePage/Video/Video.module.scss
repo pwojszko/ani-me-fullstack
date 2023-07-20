@@ -1,0 +1,48 @@
+@import "../../../assets/scss/abstracts/variables";
+@import "../../../assets/scss/abstracts/mixins";
+
+.video {
+  position: relative;
+  padding: 20px 0 0 20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    inset: 0 75% auto 0;
+    height: 1px;
+    background: $color-1;
+    transition: all 3s;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    inset: 0 auto 25% 0;
+    width: 1px;
+    background: $color-1;
+    transition: all 3s;
+  }
+
+  .iframe-container {
+    position: relative;
+    width: 100%;
+    min-height: 642px;
+
+    iframe {
+      border: none;
+      width: 100%;
+      min-height: 642px;
+    }
+  }
+
+  &:hover {
+    &::before {
+      inset: 0 25% auto 0;
+    }
+    &::after {
+      inset: 0 auto 75% 0;
+    }
+  }
+}

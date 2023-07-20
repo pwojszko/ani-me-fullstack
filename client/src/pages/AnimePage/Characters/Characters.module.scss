@@ -1,0 +1,113 @@
+@import "../../../assets/scss/abstracts/variables";
+@import "../../../assets/scss/abstracts/mixins";
+
+.characters-wrapper {
+  position: relative;
+
+  .button {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: 1;
+    padding: 30px;
+    font-size: 50px;
+    background-color: $primary;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    color: $light;
+    transition: color, scale 0.3s;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
+    &.left {
+      left: 0;
+      border-radius: 0 50% 50% 0;
+    }
+    &.right {
+      right: 0;
+      border-radius: 50% 0 0 50%;
+    }
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  .characters {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 275px;
+    gap: 25px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+
+    &::-webkit-scrollbar {
+      height: 0px;
+      width: 0px;
+    }
+
+    .character {
+      scroll-snap-align: start;
+      padding: 20px;
+
+      .character-item {
+        position: relative;
+        border-left: 2px solid $color-1;
+        margin: 20px auto;
+        transition: all 0.3s;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
+
+        .character-text {
+          .title-container {
+            display: flex;
+            place-items: center;
+            transform: translate(-2px, -50%);
+
+            .line {
+              flex: 1;
+              height: 2px;
+              background-color: $color-1;
+            }
+
+            .character-title {
+              padding-left: 10px;
+              line-height: 0;
+            }
+          }
+
+          .subtitle-container {
+            display: flex;
+            place-items: center;
+            transform: translate(-2px, 50%);
+
+            .line {
+              flex: 1;
+              height: 2px;
+              background-color: $color-1;
+            }
+
+            .character-subtitle {
+              padding-left: 10px;
+              font-size: 1.2rem;
+              line-height: 0;
+            }
+          }
+        }
+
+        .character-image {
+          padding-left: 20px;
+          width: 245px;
+          height: 350px;
+          object-fit: cover;
+          margin: 15px 0;
+        }
+      }
+    }
+  }
+}
