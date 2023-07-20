@@ -1,0 +1,59 @@
+@import "../../../../assets/scss/abstracts/variables";
+@import "../../../../assets/scss/abstracts/mixins";
+
+.hero {
+  display: flex;
+  place-items: center;
+  position: relative;
+  min-height: 700px;
+  padding: 50px 0 50px 0;
+  background-image: url("../../../../assets/images/hero-bg.webp");
+  background-size: cover;
+  box-shadow: inset 100px 0px 50px -30px $color-dark-2;
+
+  @include md {
+    margin-bottom: -100px;
+    padding: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      0deg,
+      rgba($color-dark-2, 1),
+      rgba($color-dark-2, 0.5)
+    );
+  }
+
+  .hero__container {
+    display: flex;
+    justify-content: end;
+    place-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 0;
+    padding: 0 $padding-1;
+    text-align: right;
+
+    .hero__image {
+      display: none;
+
+      @include sm {
+        display: block;
+        padding: 0 $padding-1 $padding-2 0;
+        border-right: 2px solid $color-1;
+      }
+    }
+    .hero__text {
+      display: flex;
+      flex-direction: column;
+      place-items: flex-end;
+      padding-right: $padding-1;
+      row-gap: 30px;
+      max-width: 400px;
+    }
+  }
+}

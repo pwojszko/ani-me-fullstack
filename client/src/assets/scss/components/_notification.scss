@@ -1,0 +1,12 @@
+.notification {
+  position: absolute;
+  inset: 0 0 auto auto;
+  z-index: 10;
+  margin: $spacing-3;
+  padding: $spacing-2;
+  background-color: $color-1;
+  border-radius: $radius-1 0 $radius-1 $radius-1;
+
+  .notification__text {
+  }
+}

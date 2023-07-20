@@ -1,0 +1,35 @@
+@import "../../../../assets/scss/abstracts/variables";
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  gap: $padding-1;
+
+  .title-container {
+    display: flex;
+    position: relative;
+    place-items: center;
+
+    &__title {
+      padding-right: $padding-1;
+    }
+
+    &__line {
+      flex: 1;
+      background-color: $color-1;
+      height: 2px;
+    }
+  }
+
+  .user-details {
+    display: flex;
+    gap: $padding-1;
+
+    &__image {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: $radius-1;
+    }
+  }
+}

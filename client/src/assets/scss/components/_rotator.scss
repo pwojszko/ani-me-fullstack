@@ -1,0 +1,112 @@
+.rotator {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+  padding-bottom: $padding-1;
+
+  .rotator__button {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: transparent;
+
+    &.rotator__button-to-left {
+      left: 10px;
+    }
+    &.rotator__button-to-right {
+      right: 10px;
+    }
+
+    &.rotator__button--active {
+    }
+    &.rotator__button--inactive {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .rotator__button-lines {
+      width: 40px;
+      height: 40px;
+      &.rotator-button-lines--left {
+        transform: rotate(180deg);
+      }
+      &.rotator-button-lines--right {
+      }
+
+      .rotator__button-line {
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        transition: 0.3s all;
+        box-shadow: 0 0 5px $color-dark-1;
+        background-color: $color-light-1;
+
+        &.rotator__button-line-1 {
+          transform: translate(calc(-50%), calc(-50% - 7px)) rotate(45deg);
+        }
+        &.rotator__button-line-2 {
+          transform: translate(calc(-50%), calc(-50% + 7px)) rotate(-45deg);
+        }
+        &.rotator__button-line-3 {
+          transform: translate(calc(-50%), calc(-50% - 7px)) rotate(45deg);
+        }
+        &.rotator__button-line-4 {
+          transform: translate(calc(-50%), calc(-50% + 7px)) rotate(-45deg);
+        }
+      }
+    }
+
+    &:hover {
+      .rotator__button-lines {
+        .rotator__button-line {
+          &.rotator__button-line-1 {
+            transform: translate(calc(-50% + 5px), calc(-50% - 7px))
+              rotate(45deg);
+          }
+          &.rotator__button-line-2 {
+            transform: translate(calc(-50% + 5px), calc(-50% + 7px))
+              rotate(-45deg);
+          }
+          &.rotator__button-line-3 {
+            transform: translate(calc(-50% + 20px), calc(-50% - 7px))
+              rotate(45deg);
+          }
+          &.rotator__button-line-4 {
+            transform: translate(calc(-50% + 20px), calc(-50% + 7px))
+              rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .rotator__list {
+    width: 100%;
+    white-space: nowrap;
+    transition: all 0.3s;
+    cursor: grabbing;
+
+    .rotator__item {
+      display: inline-block;
+      width: 25%;
+      transition: 0.3s all;
+      overflow: hidden;
+      padding: 0 15px;
+    }
+  }
+
+  .rotator__navigation {
+    position: absolute;
+    inset: auto auto 0 15px;
+
+    .rotator__navigation-list {
+      .rotator__navigation-list-item {
+      }
+    }
+  }
+}

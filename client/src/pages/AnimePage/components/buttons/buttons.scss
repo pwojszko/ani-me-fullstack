@@ -1,0 +1,48 @@
+@import "../../../../assets/scss/abstracts/variables";
+
+.anime-page_buttons-container {
+  position: relative;
+  inset: 12px 8px auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .rating-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    place-content: center;
+    gap: 10px;
+    padding: 10px 7px;
+    background-color: $color-dark-4;
+
+    &__button {
+      background-color: transparent;
+      border: none;
+      color: $color-dark-1;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover,
+      &--active,
+      &:hover ~ button {
+        color: $color-light-1;
+      }
+    }
+  }
+
+  .button-watched {
+    padding: 10px 7px;
+    background-color: transparent;
+    border: none;
+    color: $color-light-1;
+    background-color: $color-dark-4;
+    cursor: pointer;
+    color: $color-dark-1;
+    transition: all 0.3s;
+
+    &:hover,
+    &--active {
+      color: $color-light-1;
+    }
+  }
+}

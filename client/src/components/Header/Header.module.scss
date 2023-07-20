@@ -1,0 +1,280 @@
+@import "../../assets/scss/abstracts/variables";
+@import "../../assets/scss/abstracts/mixins";
+@import "../../assets/scss/base/animations";
+
+.header {
+  position: fixed;
+  inset: 0;
+  padding: $padding-1;
+  overflow: hidden;
+  transition: all 0.3s;
+  height: 85px;
+  z-index: 10;
+
+  .header_container {
+    @include md {
+      position: sticky;
+      top: 25px;
+    }
+
+    .header__logo-container {
+      margin-bottom: $padding-1;
+      width: 115px;
+
+      @include md {
+        width: 100%;
+      }
+
+      .header__logo {
+        font-size: 30px;
+        font-weight: lighter;
+        transition: all 0.3s;
+        white-space: nowrap;
+
+        @include md {
+          font-size: 15px;
+          text-align: center;
+        }
+
+        &--bold {
+          display: inline-block;
+          transform: rotate(90deg) translate(-4px, 0px);
+          margin-top: 4px;
+          border-bottom: 5px solid $color-light-1;
+
+          font-weight: bold;
+          color: $color-light-1;
+        }
+      }
+    }
+
+    .search {
+      transition: all 0.5s;
+      margin-bottom: $padding-1;
+      opacity: 0;
+      pointer-events: none;
+
+      .search__form {
+        .search__input {
+          width: 100%;
+          padding: 10px $padding-1;
+          border: none;
+          border-radius: $radius-1;
+          background-color: $color-dark-2;
+          color: $color-light-1;
+
+          &:focus {
+            & + .search__list {
+              display: block;
+              opacity: 1;
+            }
+          }
+        }
+
+        .search__list {
+          position: absolute;
+          display: none;
+          z-index: 1;
+          margin-top: 19px;
+          opacity: 0;
+          background-color: rgba($color-dark-1, 0.7);
+          min-height: 100vh;
+
+          li {
+            list-style: none;
+            padding: 5px 15px;
+            margin-bottom: 10px;
+
+            a {
+              display: block;
+              padding: 20px;
+              border-radius: $radius-1;
+              color: $color-light-1;
+              background-color: rgba($color-dark-2, 0.7);
+              transition: all 0.3s;
+
+              &:hover {
+                background-color: rgba($color-dark-2, 1);
+              }
+            }
+          }
+
+          &:hover {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .navigation {
+      top: $padding-1;
+      transition: all 0.5s;
+
+      &__item {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        place-content: flex-start;
+        width: 100%;
+        margin-bottom: $padding-1;
+
+        svg {
+          min-width: 50px;
+          min-height: 50px;
+          color: $color-light-1;
+          background-color: $color-3;
+          border-radius: 100%;
+          padding: 10px;
+          cursor: pointer;
+        }
+
+        .navButton {
+          width: 100px;
+          background-color: transparent;
+          white-space: nowrap;
+          transition: all 0.3s;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        &:hover {
+          svg {
+            animation: bubbleAnimation 0.3s linear;
+            background-color: $color-2;
+            transition: all 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  @include md {
+    width: 100px;
+    height: 100%;
+    position: relative;
+    background-color: $color-dark-1;
+    overflow: visible;
+  }
+
+  &--active {
+    height: 100vh;
+    background-color: $color-dark-1;
+
+    @include md {
+      width: 300px;
+      height: 100%;
+    }
+
+    .header_container .search {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .header_container .navigation .navigation__item .navButton {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.header {
+  .header__button {
+    position: absolute;
+    inset: 0 $padding-1 auto auto;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+
+    transition: all 0.3s;
+    background-color: $color-dark-2;
+
+    border-radius: 0 $radius-1 $radius-1 0;
+    transform: rotate(90deg);
+    cursor: pointer;
+
+    @include md {
+      position: sticky;
+      top: 50%;
+      width: 50px;
+      height: 50px;
+      margin-right: -$padding-1;
+      float: right;
+
+      border-radius: $radius-1 0 0 $radius-1;
+      transform: translate(0, -50%);
+    }
+
+    .header__button-line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      background-color: $color-1;
+      transition: all 0.3s;
+    }
+
+    .header__button-line-1 {
+      transform: translate(0, -7px) rotate(45deg);
+    }
+    .header__button-line-2 {
+      transform: translate(0, 7px) rotate(-45deg);
+    }
+    .header__button-line-3 {
+      width: 15px;
+      transform: translate(-7px, -5px) rotate(45deg);
+    }
+    .header__button-line-4 {
+      width: 15px;
+      transform: translate(-7px, 5px) rotate(-45deg);
+    }
+
+    &:hover {
+      .header__button-line-1 {
+        transform: translate(4px, -7px) rotate(45deg);
+      }
+      .header__button-line-2 {
+        transform: translate(4px, 7px) rotate(-45deg);
+      }
+      .header__button-line-3 {
+        transform: translate(-3px, 0) rotate(0);
+      }
+      .header__button-line-4 {
+        transform: translate(-3px, 0) rotate(0);
+      }
+    }
+  }
+
+  &.header--active {
+    .header__button {
+      .header__button-line-1 {
+        transform: translate(-5px, 7px) rotate(45deg);
+      }
+      .header__button-line-2 {
+        transform: translate(-5px, -7px) rotate(-45deg);
+      }
+      .header__button-line-3 {
+        width: 15px;
+        transform: translate(5px, 5px) rotate(45deg);
+      }
+      .header__button-line-4 {
+        width: 15px;
+        transform: translate(5px, -5px) rotate(-45deg);
+      }
+
+      &:hover {
+        .header__button-line-1 {
+          transform: translate(-9px, 7px) rotate(45deg);
+        }
+        .header__button-line-2 {
+          transform: translate(-9px, -7px) rotate(-45deg);
+        }
+        .header__button-line-3 {
+          transform: translate(1px, 0) rotate(0);
+        }
+        .header__button-line-4 {
+          transform: translate(1px, 0) rotate(0);
+        }
+      }
+    }
+  }
+}

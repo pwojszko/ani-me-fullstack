@@ -1,0 +1,142 @@
+@import "../../assets/scss/abstracts/variables";
+
+@mixin animation($keyframe, $delay) {
+  animation: $keyframe 2s $delay ease-in-out both;
+}
+
+@keyframes line-1 {
+  from {
+    left: 0;
+    right: 100%;
+  }
+  to {
+    left: 0;
+    right: 0;
+  }
+}
+
+@keyframes line-2 {
+  from {
+    top: 0;
+    bottom: 100%;
+  }
+  to {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+@keyframes line-3 {
+  from {
+    left: 100%;
+    right: 0;
+  }
+  to {
+    left: 0;
+    right: 0;
+  }
+}
+
+@keyframes line-4 {
+  from {
+    top: 100%;
+    bottom: 0;
+  }
+  to {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+@keyframes end-message {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes jumping {
+  from {
+    background-color: $color-1;
+    transform: translateY(0px);
+  }
+  to {
+    background-color: $color-4;
+    transform: translateY(20px);
+  }
+}
+
+.loading-frame {
+  position: absolute;
+  inset: 5px;
+  z-index: -1;
+
+  .loading-frame-dots {
+    position: absolute;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+    animation: end-message 1s 8s forwards reverse;
+
+    &-dot {
+      width: 25px;
+      height: 25px;
+      background-color: $color-2;
+      border-radius: 100%;
+      animation: 1s infinite alternate jumping;
+
+      &-1 {
+        animation-delay: 0s;
+      }
+
+      &-2 {
+        animation-delay: 0.3s;
+      }
+
+      &-3 {
+        animation-delay: 0.6s;
+      }
+    }
+  }
+
+  &__end-message {
+    position: absolute;
+    display: flex;
+    inset: 0;
+    place-items: center;
+    place-content: center;
+    opacity: 0;
+    animation: end-message 2s 8s forwards;
+  }
+
+  &__line {
+    position: absolute;
+    background-color: $color-1;
+
+    &__1 {
+      top: 0;
+      height: 1px;
+      @include animation(line-1, 0s);
+    }
+    &__2 {
+      right: 0;
+      width: 1px;
+      @include animation(line-2, 2s);
+    }
+    &__3 {
+      bottom: 0;
+      height: 1px;
+      @include animation(line-3, 4s);
+    }
+    &__4 {
+      left: 0;
+      width: 1px;
+      @include animation(line-4, 6s);
+    }
+  }
+}

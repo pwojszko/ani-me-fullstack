@@ -1,0 +1,42 @@
+@import "../../assets/scss/main.scss";
+
+@keyframes jumping {
+  from {
+    background-color: $color-1;
+    transform: translateY(0px);
+  }
+  to {
+    background-color: $color-4;
+    transform: translateY(20px);
+  }
+}
+
+.preloader {
+  position: absolute;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+  gap: 10px;
+
+  &-dot {
+    width: 25px;
+    height: 25px;
+    background-color: $color-2;
+    border-radius: 100%;
+    animation: 1s infinite alternate jumping;
+
+    &-1 {
+      animation-delay: 0s;
+    }
+
+    &-2 {
+      animation-delay: 0.3s;
+    }
+
+    &-3 {
+      animation-delay: 0.6s;
+    }
+  }
+}

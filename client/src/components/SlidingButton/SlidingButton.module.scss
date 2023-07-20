@@ -1,0 +1,42 @@
+@import "../../assets/scss/abstracts/variables";
+
+.sliding-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+  color: $color-light-1;
+  background-color: $color-3;
+  border-radius: $radius-1;
+  padding: 10px 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  &__title {
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  &__subtitle {
+    position: absolute;
+    transition: all 0.3s;
+    transform: translate(0, 100%);
+    opacity: 0;
+  }
+
+  &:hover {
+    background-color: $color-1;
+
+    .sliding-button__title {
+      transform: translate(0, -100%);
+      opacity: 0;
+    }
+
+    .sliding-button__subtitle {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+}
