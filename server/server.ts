@@ -1,16 +1,19 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import postsRouter from "./controllers/posts.controller";
+import userRouter from "./routes/user.route";
+import { connectToMongoDB } from "./database/mongo.database";
 
 const app = (module.exports = express());
 
 app.use(cors());
 app.use(express.json());
 dotenv.config();
+connectToMongoDB();
 
-// readDataFromDB("users").then(console.log).catch(console.error);
-
-app.use("/api", require("./controllers/posts"));
+app.use("/api", postsRouter);
+app.use("/api", userRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server has started on port ${process.env.PORT}`);

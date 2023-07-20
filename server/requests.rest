@@ -1,1 +1,40 @@
 GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTY4OTg1MDEwMiwiZXhwIjoxNjg5ODUwMTE3fQ.wGuljBIMJSBD-2O7GstV8qSQPqIA7-_npQ95Ict05d4
+
+###
+
+POST http://localhost:5000/api/token
+content-type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTY4OTg1MDA4NX0.7Lag6K1HxJEzWKDispZY72HnqLWOM0YdTZNtx-v34cA"
+}
+
+###
+
+POST http://localhost:5000/api/login
+content-type: application/json
+
+{
+    "name": "string",
+    "password": "string"
+}
+
+###
+
+POST http://localhost:5000/api/logout
+content-type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTY4OTg1MDEwMiwiZXhwIjoxNjg5ODUwMTE3fQ.wGuljBIMJSBD-2O7GstV8qSQPqIA7-_npQ95Ict05d4"
+}
+
+###
+
+POST http://localhost:5000/api/register
+content-type: application/json
+
+{
+    "name": "test1234566",
+    "password": "test"
+}
