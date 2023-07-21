@@ -1,7 +1,8 @@
 import Hero from "./Hero/Hero";
-import Carousel from "./Carousel/Carousel";
 import classNames from "classnames/bind";
 import styles from "./HomePage.module.scss";
+import Row from "./Row/Row";
+
 const cx = classNames.bind(styles);
 
 export function HomePage() {
@@ -9,8 +10,8 @@ export function HomePage() {
     <div className={cx("home-page", "grid__home-page")}>
       <main className={cx("main")}>
         <Hero />
-        <Carousel path="seasons/now" title="Current season" />
-        <Carousel path="top/anime" title="Top anime" />
+        <Row path="seasons/now" title="Current season" />
+        <Row path="top/anime" title="Top anime" />
       </main>
     </div>
   );

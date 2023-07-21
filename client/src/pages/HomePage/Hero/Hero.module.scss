@@ -1,5 +1,5 @@
-@import "../../../assets/scss/abstracts/variables";
-@import "../../../assets/scss/abstracts/mixins";
+@import "src/assets/scss/abstracts/variables";
+@import "src/assets/scss/abstracts/mixins";
 
 .hero {
   display: flex;
@@ -7,7 +7,7 @@
   position: relative;
   min-height: 700px;
   padding: 50px 0 50px 0;
-  background-image: url("../../../assets/images/hero-bg.webp");
+  background-image: url("src/assets/images/hero-bg.webp");
   background-size: cover;
   box-shadow: inset 100px 0px 50px -30px $primary;
 

@@ -1,10 +1,11 @@
+import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import { skipToken } from "@reduxjs/toolkit/query/react";
-import { useGetAnimeCharactersQuery } from "../../../store/anime/animeService";
+import classNames from "classnames/bind";
+import { useGetAnimeCharactersQuery } from "src/store/anime/animeService";
 import Character from "./Character";
 import styles from "./Characters.module.scss";
-import classNames from "classnames/bind";
-import { useRef } from "react";
+
 const cx = classNames.bind(styles);
 
 const Characters = () => {

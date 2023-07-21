@@ -1,4 +1,4 @@
-@import "../../assets/scss/abstracts/variables";
+@import "src/assets/scss/abstracts/variables";
 
 @mixin animation($keyframe, $delay) {
   animation: $keyframe 2s $delay ease-in-out both;

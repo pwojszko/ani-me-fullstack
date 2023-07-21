@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { useGetAnimeListQuery } from "../../../store/anime/animeService";
 import classNames from "classnames/bind";
+import { useGetRandomAnimeQuery } from "src/store/anime/animeService";
 import styles from "./Hero.module.scss";
+
 const cx = classNames.bind(styles);
 
 const Hero = () => {
-  const { data } = useGetAnimeListQuery("seasons/upcoming");
-  const anime = data?.[0];
+  const { data } = useGetRandomAnimeQuery("seasons/upcoming");
 
   const handleSynopsis = (synopsis: string) => {
     if (synopsis.length > 500) {
@@ -19,18 +19,18 @@ const Hero = () => {
     <section className={cx("hero")}>
       <div className={cx("container")}>
         <div className={cx("text")}>
-          <h2>{anime?.title}</h2>
-          <p>{anime?.synopsis && handleSynopsis(anime.synopsis)}</p>
-          {anime && (
-            <Link to={`/anime/${anime?.mal_id}`}>
+          <h2>{data?.title}</h2>
+          <p>{data?.synopsis && handleSynopsis(data?.synopsis)}</p>
+          {data && (
+            <Link to={`/anime/${data?.mal_id}`}>
               <button className={cx("button", "button")}>See more</button>
             </Link>
           )}
         </div>
         <img
           className={cx("image")}
-          src={anime?.images?.webp?.image_url}
-          alt={anime?.title}
+          src={data?.images?.webp?.image_url}
+          alt={data?.title}
         />
       </div>
     </section>

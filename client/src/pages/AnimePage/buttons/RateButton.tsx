@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import typeAnimeAPI from "../../../../types/typeAnimeAPI";
-import getData from "../../../../utils/auth/getData";
-import updateData from "../../../../utils/auth/updateData";
+import typeAnimeAPI from "src/types/typeAnimeAPI";
+import getData from "src/utils/auth/getData";
+import updateData from "src/utils/auth/updateData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./buttons.scss";

@@ -1,0 +1,62 @@
+@import "src/assets/scss/abstracts/variables";
+@import "src/assets/scss/abstracts/mixins";
+
+.carousel {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+  max-width: 100%;
+
+  .button {
+    position: absolute;
+    top: 50%;
+    padding: 25px;
+    z-index: 1;
+    translate: 0 -50%;
+    background-color: $primary;
+    color: $light;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    transition: color, opacity 0.3s;
+    cursor: pointer;
+    opacity: 0.7;
+
+    &.left {
+      left: 35px;
+    }
+    &.right {
+      right: 75px;
+    }
+
+    &:hover {
+      color: $red;
+      opacity: 1;
+    }
+
+    &.disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 225px;
+    gap: 25px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    padding: 12.5px 0;
+
+    &::-webkit-scrollbar {
+      height: 0px;
+      width: 0px;
+    }
+
+    .item {
+      scroll-snap-align: start;
+    }
+  }
+}

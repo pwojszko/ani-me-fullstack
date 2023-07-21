@@ -1,0 +1,75 @@
+@import "src/assets/scss/abstracts/variables";
+@import "src/assets/scss/abstracts/mixins";
+
+.row {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+  max-width: 100%;
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    position: relative;
+    margin: 20px 10px 20px 10px;
+
+    .title {
+      padding-bottom: 10px;
+      writing-mode: vertical-rl;
+    }
+
+    .line {
+      flex: 1;
+      background-color: $color-1;
+      width: 2px;
+    }
+  }
+
+  .item {
+    position: relative;
+    transition: all 0.3s;
+
+    .item-image {
+      height: 320px;
+      width: 225px;
+      transition: all 0.3s;
+      border-radius: $radius-1;
+      pointer-events: none;
+    }
+
+    .item-title {
+      display: flex;
+      place-items: center;
+      position: absolute;
+      inset: auto 30px 30px 30px;
+      padding: 10px;
+      min-height: 20%;
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.3s;
+      font-weight: bold;
+      color: $color-light-1;
+      border-left: 2px solid $color-1;
+    }
+
+    &:hover {
+      &::before {
+        height: 40%;
+      }
+
+      &::after {
+        height: 40%;
+      }
+
+      .item-title {
+        opacity: 1;
+      }
+
+      .item-image {
+        filter: brightness(0.4);
+        transform: scale(1.05);
+      }
+    }
+  }
+}

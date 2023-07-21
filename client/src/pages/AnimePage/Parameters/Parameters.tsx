@@ -1,6 +1,7 @@
-import { Anime } from "@store/anime/AnimeTypes";
-import styles from "./Parameters.module.scss";
 import classNames from "classnames/bind";
+import { Anime } from "src/store/anime/AnimeTypes";
+import styles from "./Parameters.module.scss";
+
 const cx = classNames.bind(styles);
 
 const Parameters = ({ data }: { data?: Anime }) => {

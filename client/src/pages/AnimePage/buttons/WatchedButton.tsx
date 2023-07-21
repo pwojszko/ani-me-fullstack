@@ -1,5 +1,5 @@
-import typeAnimeAPI from "../../../../types/typeAnimeAPI";
-import updateData from "../../../../utils/auth/updateData";
+import typeAnimeAPI from "src/types/typeAnimeAPI";
+import updateData from "src/utils/auth/updateData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 

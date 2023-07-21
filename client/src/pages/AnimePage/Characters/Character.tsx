@@ -1,6 +1,7 @@
-import type { Character } from "@store/anime/AnimeTypes";
-import styles from "./Characters.module.scss";
 import classNames from "classnames/bind";
+import type { Character } from "src/store/anime/AnimeTypes";
+import styles from "./Characters.module.scss";
+
 const cx = classNames.bind(styles);
 
 const Character = ({ data }: { data: Character }) => {

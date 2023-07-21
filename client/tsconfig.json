@@ -20,14 +20,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"],
-      "@store/*": ["store/*"],
-      "@router/*": ["router/*"],
-      "@utils/*": ["utils/*"]
+      "src/*": ["./src/*"]
     }
   },
   "include": ["src"],

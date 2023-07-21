@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
-import RateButtons from "../buttons/RateButton";
-import WatchedButton from "../buttons/WatchedButton";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./Content.module.scss";
 import classNames from "classnames/bind";
-import { Anime } from "@store/anime/AnimeTypes";
+import { Anime } from "src/store/anime/AnimeTypes";
+import styles from "./Content.module.scss";
+
 const cx = classNames.bind(styles);
 
 const Content = ({ data }: { data?: Anime }) => {
