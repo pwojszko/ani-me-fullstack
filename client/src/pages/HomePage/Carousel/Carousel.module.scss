@@ -52,6 +52,11 @@
       color: $red;
       opacity: 1;
     }
+
+    &.disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   .list {

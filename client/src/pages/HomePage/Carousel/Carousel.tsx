@@ -3,30 +3,28 @@ import { useGetAnimeListQuery } from "../../../store/anime/animeService";
 import classNames from "classnames/bind";
 import styles from "./Carousel.module.scss";
 import { Anime } from "@store/anime/AnimeTypes";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 const cx = classNames.bind(styles);
 
 const Carousel = ({ path, title }: { path: string; title: string }) => {
   const { data } = useGetAnimeListQuery(path);
   const ref = useRef<HTMLDivElement>(null);
+  const [srollProgress, setSrollProgress] = useState<number>(0);
 
-  const handleScrollRight = () => {
+  const handleScroll = (toRight: boolean) => {
     if (ref.current) {
-      const finalPosition = ref.current?.scrollLeft + ref.current?.offsetWidth;
+      const { scrollLeft, offsetWidth, scrollWidth, clientWidth } = ref.current;
+
+      const scrollToPosition =
+        scrollLeft + (toRight ? offsetWidth : -offsetWidth);
+      const maxPosition = scrollWidth - clientWidth;
+      const scrollProgress = (scrollToPosition / maxPosition) * 100;
+
       ref.current?.scrollTo({
-        left: finalPosition,
+        left: scrollToPosition,
         behavior: "smooth",
       });
-    }
-  };
-
-  const handleScrollLeft = () => {
-    if (ref.current) {
-      const finalPosition = ref.current?.scrollLeft - ref.current?.offsetWidth;
-      ref.current?.scrollTo({
-        left: finalPosition,
-        behavior: "smooth",
-      });
+      setSrollProgress(scrollProgress);
     }
   };
 
@@ -38,15 +36,15 @@ const Carousel = ({ path, title }: { path: string; title: string }) => {
       </div>
 
       <button
-        className={cx("button", "left")}
-        onClick={handleScrollLeft}
+        className={cx("button", "left", { disabled: srollProgress <= 0 })}
+        onClick={() => handleScroll(false)}
         aria-label="scroll left"
       >
         {"<"}
       </button>
       <button
-        className={cx("button", "right")}
-        onClick={handleScrollRight}
+        className={cx("button", "right", { disabled: srollProgress >= 100 })}
+        onClick={() => handleScroll(true)}
         aria-label="scroll right"
       >
         {">"}
