@@ -3,7 +3,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsI
 
 ###
 
-POST http://localhost:5000/api/token
+POST http://localhost:5000/api/auth/token
 content-type: application/json
 
 {
@@ -12,17 +12,17 @@ content-type: application/json
 
 ###
 
-POST http://localhost:5000/api/login
+POST http://localhost:5000/api/auth/login
 content-type: application/json
 
 {
-    "name": "string",
-    "password": "string"
+    "email": "tqwe123",
+    "password": "test"
 }
 
 ###
 
-POST http://localhost:5000/api/logout
+POST http://localhost:5000/api/auth/logout
 content-type: application/json
 
 {
@@ -31,10 +31,11 @@ content-type: application/json
 
 ###
 
-POST http://localhost:5000/api/register
+POST http://localhost:5000/api/auth/register
 content-type: application/json
 
 {
-    "name": "test1234566",
+    "name": "testname",
+    "email": "tqwe123",
     "password": "test"
 }

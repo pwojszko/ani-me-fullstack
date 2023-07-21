@@ -15,17 +15,17 @@ export async function register(user: User): Promise<void> {
 
 export async function login(user: User) {
   try {
-    const foundUser = await UserModel.findOne({ name: user.name });
+    const foundUser = await UserModel.findOne({ email: user.email });
 
     if (!foundUser) {
-      throw new Error("Name of user is not correct");
+      throw new Error("Email is not correct");
     }
 
     const isMatch = bcrypt.compareSync(user.password, foundUser.password);
 
     if (isMatch) {
       const token = jwt.sign(
-        { _id: foundUser._id?.toString(), name: foundUser.name },
+        { _id: foundUser._id?.toString() },
         process.env.ACCESS_TOKEN_SECRET || "",
         {
           expiresIn: "2 days",
@@ -33,7 +33,6 @@ export async function login(user: User) {
       );
 
       return {
-        user: { _id: foundUser._id?.toString(), name: foundUser.name },
         token: token,
       };
     } else {

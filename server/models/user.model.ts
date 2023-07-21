@@ -5,11 +5,13 @@ const saltRounds = 8;
 
 export type User = mongoose.Document & {
   name: string;
+  email: string;
   password: string;
 };
 
 const UserSchema: mongoose.Schema<User> = new mongoose.Schema({
-  name: { type: String, unique: true },
+  name: { type: String },
+  email: { type: String, unique: true },
   password: { type: String },
 });
 

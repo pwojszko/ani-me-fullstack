@@ -3,7 +3,7 @@ import { Router } from "express";
 
 const userRouter = Router();
 
-userRouter.post("/login", userController.loginOne);
-userRouter.post("/register", userController.registerOne);
+userRouter.post("/auth/login", userController.loginOne);
+userRouter.post("/auth/register", userController.registerOne);
 
 export default userRouter;
