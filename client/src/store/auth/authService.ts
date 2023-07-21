@@ -5,11 +5,11 @@ import { setUser } from "./authSlice";
 
 export const authApi = createApi({
   reducerPath: "authApi",
-  baseQuery: fetchBaseQueryWithToken("/api/auth"),
+  baseQuery: fetchBaseQueryWithToken("http://localhost:5000/api/auth"),
   endpoints: (builder) => ({
     postLogin: builder.mutation<User, LoginBody>({
       query: (body) => ({
-        url: "/Login",
+        url: "/login",
         method: "POST",
         body: body,
       }),
@@ -20,7 +20,7 @@ export const authApi = createApi({
     }),
     postRegister: builder.mutation<void, RegisterBody>({
       query: (body) => ({
-        url: "/Register",
+        url: "/register",
         method: "POST",
         body: body,
       }),

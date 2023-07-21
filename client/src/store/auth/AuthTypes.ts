@@ -3,11 +3,11 @@ export type User = {
 };
 
 export type LoginBody = {
-  login: string;
+  email: string;
   password: string;
 };
 
 export type RegisterBody = {
-  login: string;
+  email: string;
   password: string;
 };
