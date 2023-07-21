@@ -8,6 +8,6 @@ body::-webkit-scrollbar {
   &-thumb {
     box-shadow: 0 -100vh 0 100vh $color-4;
     background-color: $color-4;
-    background: linear-gradient(0deg, $color-2 0%, $color-4 100%);
+    background: linear-gradient(0deg, $red 0%, $color-4 100%);
   }
 }

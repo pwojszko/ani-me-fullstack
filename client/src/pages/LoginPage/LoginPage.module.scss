@@ -25,7 +25,7 @@
       display: flex;
       flex-direction: column;
       row-gap: 3rem;
-      border-right: 2px solid $color-2;
+      border-right: 2px solid $red;
       padding: 0 30px 75px 0;
 
       .label {
@@ -59,6 +59,7 @@
         border: none;
         color: $light;
         margin-top: 20px;
+        transition: background-color 0.5s;
 
         &::after {
           content: "ログイン";
@@ -75,8 +76,11 @@
           cursor: pointer;
         }
 
-        &:hover::after {
-          opacity: 1;
+        &:hover {
+          background-color: $light-red;
+          &::after {
+            opacity: 1;
+          }
         }
       }
     }
