@@ -1,6 +1,6 @@
 import App from "../App";
 import { HomePage } from "../pages/HomePage";
-import { AnimePage } from "../pages/AnimePage";
+import Anime from "../pages/Anime/Anime";
 import LoginPage from "../pages/LoginPage/Login";
 import Register from "../pages/Register/Register";
 import UserPanelPage from "../pages/UserPanelPage";
@@ -16,7 +16,7 @@ const routes = [
       },
       {
         path: "/anime/:id",
-        element: <AnimePage />,
+        element: <Anime />,
       },
       {
         path: "/login",
