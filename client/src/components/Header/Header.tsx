@@ -11,15 +11,6 @@ const Header = () => {
 
   const handleClick = () => setIsActive((prev) => !prev);
 
-  const setActiveButton: JSX.Element = (
-    <div className={cx("header__button")} onClick={handleClick}>
-      <div className={cx("header__button-line", "header__button-line-1")}></div>
-      <div className={cx("header__button-line", "header__button-line-2")}></div>
-      <div className={cx("header__button-line", "header__button-line-3")}></div>
-      <div className={cx("header__button-line", "header__button-line-4")}></div>
-    </div>
-  );
-
   return (
     <header
       className={cx("header", "grid__header", { "header--active": isActive })}
@@ -33,9 +24,22 @@ const Header = () => {
           </Link>
         </div>
         <SearchBar />
-        {/* <Navigation setIsActive={setIsActive} /> */}
+        <Navigation setIsActive={setIsActive} />
       </div>
-      {setActiveButton}
+      <div className={cx("header__button")} onClick={handleClick}>
+        <div
+          className={cx("header__button-line", "header__button-line-1")}
+        ></div>
+        <div
+          className={cx("header__button-line", "header__button-line-2")}
+        ></div>
+        <div
+          className={cx("header__button-line", "header__button-line-3")}
+        ></div>
+        <div
+          className={cx("header__button-line", "header__button-line-4")}
+        ></div>
+      </div>
     </header>
   );
 };

@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import { useForm } from "react-hook-form";
 import { usePostLoginMutation } from "src/store/auth/authService";
-import styles from "./LoginPage.module.scss";
+import styles from "./Login.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidationSchema } from "./loginValidation";
 import { InferType } from "yup";
 
 const cx = classNames.bind(styles);
 
-const LoginPage = () => {
+const Login = () => {
   const [login] = usePostLoginMutation();
   const {
     register,
@@ -24,7 +24,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={cx("login-page", "grid__login-page")}>
+    <div className={cx("login", "grid__login-page")}>
       <div className={cx("title-container")}>
         <h1 className={cx("title")}>Log in</h1>
       </div>
@@ -69,4 +69,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;

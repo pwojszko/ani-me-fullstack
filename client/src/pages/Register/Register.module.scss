@@ -1,26 +1,26 @@
 @import "src/assets/scss/abstracts/variables";
 
-.register-page {
+.register {
   display: flex;
   place-items: center;
   width: 100%;
   padding: 25px 15px;
 
-  .register-page__title-container {
+  .title-container {
     height: 100%;
-    .register-page__title {
+    .title {
       writing-mode: vertical-rl;
       font-size: 100px;
       color: $watermark-color-1;
     }
   }
 
-  .register-page__form-container {
+  .form-container {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    .register-page__form {
+    .form {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -28,8 +28,8 @@
       border-right: 2px solid $red;
       padding: 0 30px 75px 0;
 
-      .register-page__label {
-        .register-page__input {
+      .label {
+        .input {
           background-color: $color-dark-1;
           border: none;
           height: 40px;
@@ -39,11 +39,17 @@
         }
       }
 
-      .register-page__submit {
+      .submit {
         position: relative;
         height: 50px;
         overflow: hidden;
         border-radius: $radius-1;
+        background-color: $red;
+        border: none;
+        color: $light;
+        margin-top: 20px;
+        transition: background-color 0.5s;
+        cursor: pointer;
 
         &::after {
           transition: all 0.5s;
@@ -62,22 +68,29 @@
         &:hover::after {
           opacity: 1;
         }
+
+        &:hover {
+          background-color: $light-red;
+          &::after {
+            opacity: 1;
+          }
+        }
       }
     }
 
-    .register-page__redirect {
+    .redirect {
       position: relative;
       overflow: hidden;
 
-      .register-page__redirect-container {
-        .register-page__text {
+      .redirect-container {
+        .text {
           position: absolute;
           bottom: 15px;
           left: 30px;
           width: 100%;
           transform: translate(0, -50%);
         }
-        .register-page__button {
+        .button {
           position: absolute;
           bottom: 15px;
           left: 0;
@@ -85,10 +98,17 @@
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
           transform: translate(-100%, 0);
+          transition: transform 0.5s;
+          background-color: $red;
+          color: $light;
+          padding: 10px;
+          border: 0;
+          border-radius: 0 10px 10px 0;
+          cursor: pointer;
         }
 
         &:hover {
-          .register-page__button {
+          .button {
             transform: translate(0, 0);
           }
         }
