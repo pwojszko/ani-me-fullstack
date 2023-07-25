@@ -39,3 +39,8 @@ content-type: application/json
     "email": "te@st.test",
     "password": "zaq1@WSX"
 }
+
+###
+
+GET http://localhost:5000/api/watched
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGJhNmM5YmFiZGJjNmUyMTMyYTZkZTIiLCJpYXQiOjE2OTAyNzYwOTksImV4cCI6MTY5MDQ0ODg5OX0.valWaEnPPocbFChWNjC3atPdWiKrtfNtQLQXVtEGaGc
