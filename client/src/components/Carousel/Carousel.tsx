@@ -5,7 +5,13 @@ import React from "react";
 
 const cx = classNames.bind(styles);
 
-const Carousel = ({ children }: { children: React.ReactNode }) => {
+const Carousel = ({
+  children,
+  width = 225,
+}: {
+  children: React.ReactNode;
+  width?: number;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const [srollProgress, setSrollProgress] = useState<number>(0);
 
@@ -44,7 +50,11 @@ const Carousel = ({ children }: { children: React.ReactNode }) => {
         {">"}
       </button>
 
-      <div className={cx("list")} ref={ref}>
+      <div
+        className={cx("list")}
+        ref={ref}
+        style={{ gridAutoColumns: `${width}px` }}
+      >
         {React.Children.toArray(children).map((child, index) => (
           <div key={index} className={cx("item")}>
             {child}

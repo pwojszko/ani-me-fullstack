@@ -3,7 +3,9 @@
 
 .carousel {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr auto;
   margin-bottom: 10px;
   max-width: 100%;
 
@@ -26,7 +28,7 @@
       left: 35px;
     }
     &.right {
-      right: 75px;
+      right: 35px;
     }
 
     &:hover {
@@ -43,7 +45,6 @@
   .list {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 225px;
     gap: 25px;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
