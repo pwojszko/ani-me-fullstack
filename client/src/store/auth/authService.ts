@@ -1,15 +1,15 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { LoginBody, RegisterBody, User } from "./AuthTypes";
-import { fetchBaseQueryWithToken } from "../apiSettings";
+import { baseQuery } from "../apiSettings";
 import { setUser } from "./authSlice";
 
 export const authApi = createApi({
   reducerPath: "authApi",
-  baseQuery: fetchBaseQueryWithToken("http://localhost:5000/api/auth"),
+  baseQuery: baseQuery({}),
   endpoints: (builder) => ({
     postLogin: builder.mutation<User, LoginBody>({
       query: (body) => ({
-        url: "/login",
+        url: "/auth/login",
         method: "POST",
         body: body,
       }),
@@ -20,7 +20,7 @@ export const authApi = createApi({
     }),
     postRegister: builder.mutation<void, RegisterBody>({
       query: (body) => ({
-        url: "/register",
+        url: "/auth/register",
         method: "POST",
         body: body,
       }),

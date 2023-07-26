@@ -3,12 +3,16 @@ import { useParams } from "react-router-dom";
 import classNames from "classnames/bind";
 import { Anime } from "src/store/anime/AnimeTypes";
 import styles from "./Content.module.scss";
+import { useGetWatchedQuery } from "src/store/watched/watchedService";
 
 const cx = classNames.bind(styles);
 
 const Content = ({ data }: { data?: Anime }) => {
   const { id } = useParams();
   const [isWatched, setIsWatched] = useState(false);
+  const { data: watched } = useGetWatchedQuery();
+
+  console.log(watched);
 
   // useEffect(() => {
   //   if (id && userId)

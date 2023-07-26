@@ -1,16 +1,16 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { fetchBaseQueryWithToken } from "../apiSettings";
+import { baseQuery } from "../apiSettings";
 import { Anime, Character } from "./AnimeTypes";
 
 export const animeApi = createApi({
   reducerPath: "animeApi",
-  baseQuery: fetchBaseQueryWithToken("https://api.jikan.moe/v4"),
+  baseQuery: baseQuery({ baseUrl: "https://api.jikan.moe/v4" }),
   endpoints: (builder) => ({
-    getAnimeById: builder.query<Anime, string>({
+    getAnimeById: builder.query<Anime, string | number>({
       query: (id) => `anime/${id}`,
       transformResponse: (response: { data: Anime }) => response.data,
     }),
-    getAnimeCharacters: builder.query<Character[], string>({
+    getAnimeCharacters: builder.query<Character[], string | number>({
       query: (id) => `anime/${id}/characters`,
       transformResponse: (response: { data: Character[] }) => response.data,
     }),

@@ -3,7 +3,7 @@ import { HomePage } from "../pages/HomePage";
 import Anime from "../pages/Anime/Anime";
 import LoginPage from "../pages/LoginPage/Login";
 import Register from "../pages/Register/Register";
-import UserPanelPage from "../pages/UserPanelPage";
+import UserPanel from "../pages/UserPanel/UserPanel";
 
 const routes = [
   {
@@ -26,10 +26,10 @@ const routes = [
         path: "/register",
         element: <Register />,
       },
-      // {
-      //   path: "/userpanel",
-      //   element: <UserPanelPage />,
-      // },
+      {
+        path: "/userpanel",
+        element: <UserPanel />,
+      },
     ],
   },
 ];
