@@ -1,12 +1,12 @@
 @import "../src/assets/scss/abstracts/variables";
 
 .watched-anime {
-  &__title {
+  .title {
     padding-bottom: $padding-1;
     transition: all 0.3s;
   }
 
-  &__list {
+  .list {
     position: relative;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -25,7 +25,7 @@
       pointer-events: none;
     }
 
-    &--active {
+    &.active {
       max-height: 100%;
     }
 
@@ -39,24 +39,24 @@
       background-color: $color-dark-3;
       border-radius: $radius-1;
 
-      &__image {
+      .image {
         height: 150px;
         border-radius: $radius-1;
       }
 
-      &__title {
+      .title {
         font-weight: bold;
       }
 
-      &__rating {
+      .rating {
         text-align: center;
       }
 
-      &__status {
+      .status {
         text-align: center;
       }
 
-      &__button {
+      .button {
         position: absolute;
         inset: 0 0 0 auto;
         place-items: center;
@@ -65,11 +65,11 @@
     }
   }
 
-  .watched-anime__button-container {
+  .expand-button {
     display: flex;
     justify-content: center;
 
-    .watched-anime__button {
+    .button {
       position: relative;
       width: 40px;
       height: 40px;
@@ -81,11 +81,11 @@
       transition: all 0.3s;
       cursor: pointer;
 
-      &--active {
+      &.active {
         rotate: -90deg;
       }
 
-      .watched-anime__button-line {
+      .line {
         position: absolute;
         width: 20px;
         height: 2px;
@@ -96,32 +96,32 @@
         background-color: $color-light-1;
       }
 
-      .watched-anime__button-line-1 {
+      .line-1 {
         transform: translate(0, -7px) rotate(45deg);
       }
-      .watched-anime__button-line-2 {
+      .line-2 {
         transform: translate(0, 7px) rotate(-45deg);
       }
-      .watched-anime__button-line-3 {
+      .line-3 {
         width: 15px;
         transform: translate(-7px, -5px) rotate(45deg);
       }
-      .watched-anime__button-line-4 {
+      .line-4 {
         width: 15px;
         transform: translate(-7px, 5px) rotate(-45deg);
       }
 
       &:hover {
-        .watched-anime__button-line-1 {
+        .line-1 {
           transform: translate(4px, -7px) rotate(45deg);
         }
-        .watched-anime__button-line-2 {
+        .line-2 {
           transform: translate(4px, 7px) rotate(-45deg);
         }
-        .watched-anime__button-line-3 {
+        .line-3 {
           transform: translate(-3px, 0) rotate(0);
         }
-        .watched-anime__button-line-4 {
+        .line-4 {
           transform: translate(-3px, 0) rotate(0);
         }
       }

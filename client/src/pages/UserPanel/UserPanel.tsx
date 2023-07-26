@@ -1,4 +1,5 @@
 import WatchedAnimeList from "./components/WatchedAnime/WatchedAnimeList";
+import UserProfile from "./components/UserProfile/UserProfile";
 import classNames from "classnames/bind";
 import styles from "./UserPanel.module.scss";
 const cx = classNames.bind(styles);
@@ -10,7 +11,7 @@ const UserPanel = () => {
         <h1 className={cx("userpanel-page-watermark__title")}>User panel</h1>
       </div>
       <div className={cx("userpanel-page__container")}>
-        {/* <UserProfile /> */}
+        <UserProfile />
         <WatchedAnimeList />
       </div>
     </div>
