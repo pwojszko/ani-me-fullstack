@@ -1,5 +1,5 @@
 export type User = {
-  token: string;
+  token: string | null;
 };
 
 export type LoginBody = {

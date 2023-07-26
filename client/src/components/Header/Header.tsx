@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Navigation from "./Navigation";
-import SearchBar from "./SearchBar";
+import Navigation from "./Navigation/Navigation";
+import SearchBar from "./SearchBar/SearchBar";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 const cx = classNames.bind(styles);
@@ -24,7 +24,7 @@ const Header = () => {
           </Link>
         </div>
         <SearchBar />
-        <Navigation setIsActive={setIsActive} />
+        <Navigation setIsActive={setIsActive} isActive={isActive} />
       </div>
       <div className={cx("header__button")} onClick={handleClick}>
         <div

@@ -1,0 +1,50 @@
+@import "src/assets/scss/abstracts/variables";
+@import "src/assets/scss/abstracts/mixins";
+@import "src/assets/scss/base/animations";
+
+.navigation {
+  top: $padding-1;
+  transition: all 0.5s;
+
+  .item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    place-content: flex-start;
+    width: 100%;
+    margin-bottom: $padding-1;
+
+    svg {
+      min-width: 50px;
+      min-height: 50px;
+      color: $color-light-1;
+      background-color: $color-3;
+      border-radius: 100%;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .button {
+      width: 100px;
+      background-color: transparent;
+      white-space: nowrap;
+      transition: all 0.3s;
+      opacity: 0;
+    }
+
+    &:hover {
+      svg {
+        animation: bubbleAnimation 0.3s linear;
+        background-color: $red;
+        transition: all 0.3s;
+      }
+    }
+  }
+
+  &.active {
+    .item {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+}
