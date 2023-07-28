@@ -58,8 +58,8 @@ export async function getWatchedListService(userId: string) {
 }
 
 export async function addWatchedService(req: {
-  userId: number;
-  animeId: number;
+  userId: string;
+  animeId: string;
 }) {
   try {
     const user = await UserModel.findById(req.userId);
@@ -89,8 +89,8 @@ export async function addWatchedService(req: {
 }
 
 export async function removeWatchedService(req: {
-  userId: number;
-  animeId: number;
+  userId: string;
+  animeId: string;
 }) {
   try {
     const user = await UserModel.findById(req.userId);
@@ -120,8 +120,8 @@ export async function removeWatchedService(req: {
 }
 
 export async function rateWatchedService(req: {
-  userId: number;
-  animeId: number;
+  userId: string;
+  animeId: string;
   rate: number;
 }) {
   try {
