@@ -13,9 +13,15 @@ import { HomePage } from "src/pages/HomePage";
 const Router = () => {
   const auth = useAppSelector((state) => state.auth);
 
-  const shouldRedirect = (permissions: Permission[]) => {
-    if (auth.token && !permissions.includes("authorized")) {
-      throw redirect("/");
+  const shouldRedirect = (
+    permissions: Permission[],
+    path: string,
+    requestUrl: string
+  ) => {
+    const url = new URL(requestUrl);
+
+    if (!auth.token && permissions.includes("authorized")) {
+      if (url.pathname === path) throw redirect("/");
     }
     return null;
   };
@@ -31,7 +37,9 @@ const Router = () => {
                 key={route.path}
                 path={route.path}
                 element={route.element}
-                // loader={() => shouldRedirect(route.permissions)}
+                loader={({ request }) =>
+                  shouldRedirect(route.permissions, route.path, request.url)
+                }
               />
             ))}
           </Route>

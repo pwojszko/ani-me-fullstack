@@ -15,12 +15,12 @@ const routes: Route[] = [
   {
     path: "/anime",
     element: <div>23</div>,
-    permissions: ["unauthorized"],
+    permissions: ["unauthorized", "authorized"],
   },
   {
     path: "/anime/:id",
     element: <Anime />,
-    permissions: ["unauthorized"],
+    permissions: ["unauthorized", "authorized"],
   },
   {
     path: "/login",
@@ -35,7 +35,7 @@ const routes: Route[] = [
   {
     path: "/userpanel",
     element: <UserPanel />,
-    permissions: ["unauthorized"],
+    permissions: ["authorized"],
   },
 ];
 
