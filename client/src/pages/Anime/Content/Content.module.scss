@@ -37,6 +37,7 @@
         background-color: $red;
         clip-path: polygon(0 0, 100% 100%, 50% 100%, 0 50%);
         font-weight: bold;
+        animation: appear 0.5s ease-out;
 
         .is-watched-text {
           position: absolute;
@@ -93,5 +94,15 @@
     &.active {
       color: $color-light-1;
     }
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
