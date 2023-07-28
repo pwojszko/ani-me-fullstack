@@ -8,7 +8,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "src/App";
 import { useAppSelector } from "src/store/hooks";
 import routes, { Permission } from "./routes";
-import { HomePage } from "src/pages/HomePage";
+import { HomePage } from "src/pages/Home/Home";
 
 const Router = () => {
   const auth = useAppSelector((state) => state.auth);

@@ -1,6 +1,6 @@
 import Hero from "./Hero/Hero";
 import classNames from "classnames/bind";
-import styles from "./HomePage.module.scss";
+import styles from "./Home.module.scss";
 import Row from "./Row/Row";
 
 const cx = classNames.bind(styles);
