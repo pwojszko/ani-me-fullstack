@@ -1,45 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import classNames from "classnames/bind";
+import { AiFillEye } from "react-icons/ai";
 import { Anime } from "src/store/anime/AnimeTypes";
+import {
+  useGetWatchedQuery,
+  usePostAddWatchedMutation,
+  usePostRemoveWatchedMutation,
+} from "src/store/watched/watchedService";
+import { useAppSelector } from "src/store/hooks";
 import styles from "./Content.module.scss";
-import { useGetWatchedQuery } from "src/store/watched/watchedService";
 
 const cx = classNames.bind(styles);
 
 const Content = ({ data }: { data?: Anime }) => {
-  const { id } = useParams();
   const [isWatched, setIsWatched] = useState(false);
+
+  const isAuth = useAppSelector((state) => !!state.auth.token);
+  const { id: animeId } = useParams();
   const { data: watched } = useGetWatchedQuery();
+  const [addWatched] = usePostAddWatchedMutation();
+  const [removeWatched] = usePostRemoveWatchedMutation();
 
-  console.log(watched);
+  const handleWatchedButton = (animeId: string) => {
+    if (isWatched) {
+      void removeWatched({ animeId });
+    } else {
+      void addWatched({ animeId });
+    }
+  };
 
-  // useEffect(() => {
-  //   if (id && userId)
-  //     getData("users/" + userId + "/libary/" + id + "/watched").then((data) =>
-  //       setIsWatched(data)
-  //     );
-  // }, [isWatched, id, userId]);
-
-  // const buttons = (
-  //   <div className="anime-page_buttons">
-  //     <div className="anime-page_buttons-container">
-  //       <RateButtons
-  //         scorePoints={[5, 4, 3, 2, 1]}
-  //         animeId={id}
-  //         userId={userId}
-  //         data={data}
-  //       />
-  //       <WatchedButton
-  //         setIsWatched={setIsWatched}
-  //         isWatched={isWatched}
-  //         userId={userId}
-  //         animeId={id}
-  //         data={data}
-  //       />
-  //     </div>
-  //   </div>
-  // );
+  useEffect(() => {
+    const isWatched = !!watched?.find((item) => item.id === animeId);
+    setIsWatched(isWatched);
+  }, [animeId, watched]);
 
   return (
     <div className={cx("content")}>
@@ -48,7 +42,25 @@ const Content = ({ data }: { data?: Anime }) => {
         <p className={cx("text")}>{data?.synopsis}</p>
       </div>
       <div className={cx("container")}>
-        {/* {userId && buttons} */}
+        {isAuth && (
+          <div className={cx("buttons")}>
+            <div className={cx("buttons-container")}>
+              {/* <RateButtons
+                scorePoints={[5, 4, 3, 2, 1]}
+                animeId={id}
+                userId={userId}
+                data={data}
+              /> */}
+
+              <button
+                onClick={() => animeId && handleWatchedButton(animeId)}
+                className={cx("button-watched", { active: isWatched })}
+              >
+                <AiFillEye />
+              </button>
+            </div>
+          </div>
+        )}
         <div className={cx("image-container")}>
           <img
             className={cx("image")}

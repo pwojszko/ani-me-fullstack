@@ -8,7 +8,7 @@ export type User = mongoose.Document & {
   email: string;
   password: string;
   watched: {
-    id: number;
+    id: string;
     rate: number;
   }[];
 };
@@ -20,7 +20,7 @@ const UserSchema: mongoose.Schema<User> = new mongoose.Schema({
   watched: {
     type: [
       {
-        id: { type: Number },
+        id: { type: String },
         rate: { type: Number, min: 0, max: 10 },
       },
     ],
