@@ -10,13 +10,13 @@ const cx = classNames.bind(styles);
 
 const Characters = () => {
   const { id } = useParams();
-  const { data } = useGetAnimeCharactersQuery(id ?? skipToken);
+  const { data: characters } = useGetAnimeCharactersQuery(id ?? skipToken);
 
   return (
     <div className={cx("characters")}>
       <Carousel width={275}>
-        {data?.map((item) => (
-          <Character data={item} />
+        {characters?.map((character) => (
+          <Character key={character.character.mal_id} data={character} />
         ))}
       </Carousel>
     </div>

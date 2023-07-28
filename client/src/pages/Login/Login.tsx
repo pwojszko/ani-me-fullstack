@@ -38,6 +38,7 @@ const Login = () => {
               {...register("email")}
               className={cx("input")}
               placeholder="Email"
+              type="email"
             />
             <p className={cx("error")}>{errors.email?.message}</p>
           </label>
@@ -47,6 +48,7 @@ const Login = () => {
               {...register("password")}
               className={cx("input")}
               placeholder="Password"
+              type="password"
             />
             <p className={cx("error")}>{errors.password?.message}</p>
           </label>
