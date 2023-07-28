@@ -1,5 +1,5 @@
 import Anime from "../pages/Anime/Anime";
-import LoginPage from "../pages/LoginPage/Login";
+import LoginPage from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import UserPanel from "../pages/UserPanel/UserPanel";
 

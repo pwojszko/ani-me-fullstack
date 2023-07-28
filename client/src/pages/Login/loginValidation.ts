@@ -10,24 +10,15 @@ const messages = {
   NOT_A_MAIL: "Not a valid email",
 };
 
-const {
-  REQUIRED,
-  INVALID_DATE,
-  TOO_LONG,
-  PASSWORD_MIN_8_LENGTH,
-  PASSWORD_REQ,
-  NOT_A_MAIL,
-} = messages;
-
 export const loginValidationSchema = object().shape({
-  email: string().email(NOT_A_MAIL).required(REQUIRED),
+  email: string().email(messages.NOT_A_MAIL).required(messages.REQUIRED),
   password: string()
-    .typeError(INVALID_DATE)
-    .min(8, PASSWORD_MIN_8_LENGTH)
-    .max(50, TOO_LONG)
-    .required(REQUIRED)
+    .typeError(messages.INVALID_DATE)
+    .min(8, messages.PASSWORD_MIN_8_LENGTH)
+    .max(50, messages.TOO_LONG)
+    .required(messages.REQUIRED)
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-      PASSWORD_REQ
+      messages.PASSWORD_REQ
     ),
 });
