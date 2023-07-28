@@ -4,6 +4,7 @@ import SlidingButton from "src/components/SlidingButton/SlidingButton";
 import { useGetAnimeByIdQuery } from "src/store/anime/animeService";
 import { Watched } from "src/store/watched/WatchedTypes";
 import styles from "./WatchedAnime.module.scss";
+import { AiOutlineLoading } from "react-icons/ai";
 
 const cx = classNames.bind(styles);
 
@@ -12,11 +13,13 @@ type WatchedAnimeProps = {
 };
 
 const WatchedAnimeCard = ({ watched }: WatchedAnimeProps) => {
-  const { data: anime } = useGetAnimeByIdQuery(watched.id);
+  const { data: anime, isLoading } = useGetAnimeByIdQuery(watched.id);
 
   return (
     <div className={cx("watched-anime-card")}>
       <>
+        {isLoading && <AiOutlineLoading className={cx("loading")} />}
+
         <img
           className={cx("image")}
           src={anime?.images.webp.image_url}

@@ -4,7 +4,7 @@ import { Anime, Character } from "./AnimeTypes";
 
 export const animeApi = createApi({
   reducerPath: "animeApi",
-  baseQuery: baseQuery({ baseUrl: "https://api.jikan.moe/v4" }),
+  baseQuery: baseQuery({ baseUrl: "https://api.jikan.moe/v4", maxRetries: 5 }),
   endpoints: (builder) => ({
     getAnimeById: builder.query<Anime, string | number>({
       query: (id) => `anime/${id}`,

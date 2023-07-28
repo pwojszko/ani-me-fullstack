@@ -1,5 +1,14 @@
 @import "../src/assets/scss/abstracts/variables";
 
+@keyframes loading {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
 .watched-anime {
   .title {
     padding-bottom: $padding-1;
@@ -38,6 +47,13 @@
       padding: $spacing-2;
       background-color: $color-dark-3;
       border-radius: $radius-1;
+
+      .loading {
+        position: absolute;
+        inset: 50% 50% auto auto;
+        translate: -50% -50%;
+        animation: loading 1s infinite;
+      }
 
       .image {
         height: 150px;
