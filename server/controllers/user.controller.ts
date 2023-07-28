@@ -33,7 +33,7 @@ export const getWatchedList = async (req: Request, res: Response) => {
 export const addWatched = async (req: Request, res: Response) => {
   try {
     await services.addWatchedService(req.body);
-    res.status(200).send("Inserted successfully");
+    res.status(200).send({ message: "Added successfully" });
   } catch (error) {
     return res.status(500).send(getErrorMessage(error));
   }
