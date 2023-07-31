@@ -7,7 +7,7 @@
   .character {
     .character-item {
       position: relative;
-      border-left: 2px solid $color-1;
+      border-left: 2px solid $light-red;
       margin: 20px auto;
       transition: all 0.3s;
 
@@ -24,7 +24,7 @@
           .line {
             flex: 1;
             height: 2px;
-            background-color: $color-1;
+            background-color: $light-red;
           }
 
           .character-title {
@@ -41,7 +41,7 @@
           .line {
             flex: 1;
             height: 2px;
-            background-color: $color-1;
+            background-color: $light-red;
           }
 
           .character-subtitle {

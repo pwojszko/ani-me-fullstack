@@ -21,7 +21,7 @@
 
     .line {
       flex: 1;
-      background-color: $color-1;
+      background-color: $light-red;
       width: 2px;
     }
   }
@@ -50,7 +50,7 @@
       transition: all 0.3s;
       font-weight: bold;
       color: $color-light-1;
-      border-left: 2px solid $color-1;
+      border-left: 2px solid $light-red;
     }
 
     &:hover {

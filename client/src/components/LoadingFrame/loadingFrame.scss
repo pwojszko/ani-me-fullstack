@@ -59,7 +59,7 @@
 
 @keyframes jumping {
   from {
-    background-color: $color-1;
+    background-color: $light-red;
     transform: translateY(0px);
   }
   to {
@@ -116,7 +116,7 @@
 
   &__line {
     position: absolute;
-    background-color: $color-1;
+    background-color: $light-red;
 
     &__1 {
       top: 0;
