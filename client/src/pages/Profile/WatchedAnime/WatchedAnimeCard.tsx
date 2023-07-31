@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
 import SlidingButton from "src/components/SlidingButton/SlidingButton";
 import { useGetAnimeByIdQuery } from "src/store/anime/animeService";
@@ -15,6 +15,7 @@ type WatchedAnimeProps = {
 
 const WatchedAnimeCard = ({ watched }: WatchedAnimeProps) => {
   const { data: anime, isLoading } = useGetAnimeByIdQuery(watched.id);
+  const navigate = useNavigate();
 
   return isLoading ? (
     <PreloadingFrame height="170px" />
@@ -33,13 +34,14 @@ const WatchedAnimeCard = ({ watched }: WatchedAnimeProps) => {
       </p>
 
       {anime?.mal_id && (
-        <Link to={`/anime/${anime?.mal_id}`}>
-          <SlidingButton
-            buttonClass={cx("button")}
-            icon={">"}
-            secondText="Go"
-          />
-        </Link>
+        <SlidingButton
+          buttonClass={cx("button")}
+          icon={">"}
+          secondText="Go"
+          onClick={() => {
+            navigate(`/anime/${anime?.mal_id}`);
+          }}
+        />
       )}
     </div>
   );
