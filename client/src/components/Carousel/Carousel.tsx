@@ -1,16 +1,19 @@
 import classNames from "classnames/bind";
+import { useRef, useState, Children } from "react";
 import styles from "./Carousel.module.scss";
-import { useRef, useState } from "react";
 import React from "react";
+import PreloadingFrame from "../PreloadingFrame/PreloadingFrame";
 
 const cx = classNames.bind(styles);
 
 const Carousel = ({
   children,
   width = 225,
+  height = 325,
 }: {
   children: React.ReactNode;
   width?: number;
+  height?: number;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [srollProgress, setSrollProgress] = useState<number>(0);
@@ -53,13 +56,21 @@ const Carousel = ({
       <div
         className={cx("list")}
         ref={ref}
-        style={{ gridAutoColumns: `${width}px` }}
+        style={{
+          gridAutoColumns: `${width}px`,
+          gridAutoRows: `${height}px`,
+          height: `${height}px`,
+        }}
       >
-        {React.Children.toArray(children).map((child, index) => (
-          <div key={index} className={cx("item")}>
-            {child}
-          </div>
-        ))}
+        {children ? (
+          Children.toArray(children).map((child, index) => (
+            <div key={index} className={cx("item")}>
+              {child}
+            </div>
+          ))
+        ) : (
+          <PreloadingFrame width={width} height={height} quantity={20} />
+        )}
       </div>
     </section>
   );

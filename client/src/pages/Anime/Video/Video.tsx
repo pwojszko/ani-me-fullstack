@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import LoadingFrame from "src/components/LoadingFrame/LoadingFrame";
+import LoadingFrame from "src/pages/Anime/Video/LoadingFrame/LoadingFrame";
 import type { Anime } from "src/store/anime/AnimeTypes";
 import styles from "./Video.module.scss";
 
