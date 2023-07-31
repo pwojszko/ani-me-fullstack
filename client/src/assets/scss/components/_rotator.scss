@@ -44,7 +44,7 @@
         left: 50%;
         transition: 0.3s all;
         box-shadow: 0 0 5px $secondary;
-        background-color: $color-light-1;
+        background-color: $light;
 
         &.rotator__button-line-1 {
           transform: translate(calc(-50%), calc(-50% - 7px)) rotate(45deg);

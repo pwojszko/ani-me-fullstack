@@ -64,7 +64,7 @@
     place-content: center;
     gap: 10px;
     padding: 10px 7px;
-    background-color: $color-dark-4;
+    background-color: $primary;
 
     &__button {
       background-color: transparent;
@@ -76,7 +76,7 @@
       &:hover,
       &--active,
       &:hover ~ button {
-        color: $color-light-1;
+        color: $light;
       }
     }
   }
@@ -85,7 +85,7 @@
     display: flex;
     padding: 5px 7px;
     border: none;
-    background-color: $color-dark-4;
+    background-color: $primary;
     transition: color 0.3s;
     font-size: 2rem;
     color: $light;

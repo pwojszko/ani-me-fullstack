@@ -1,5 +1,5 @@
 html {
-  color: $color-light-1;
+  color: $light;
   background-color: $primary;
   font-family: Roboto, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -17,7 +17,7 @@ html {
     h2 {
       font-size: 2.5rem;
 
-      color: $color-light-1;
+      color: $light;
     }
 
     a {

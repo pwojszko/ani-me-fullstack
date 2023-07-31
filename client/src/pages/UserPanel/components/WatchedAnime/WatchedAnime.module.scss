@@ -45,7 +45,7 @@
       gap: 20px;
       align-items: center;
       padding: $spacing-2;
-      background-color: $color-dark-3;
+      background-color: $primary;
       border-radius: $radius-1;
 
       .loading {
@@ -76,7 +76,7 @@
         position: absolute;
         inset: 0 0 0 auto;
         place-items: center;
-        background-color: $color-dark-4;
+        background-color: $primary;
       }
     }
   }
@@ -92,7 +92,7 @@
       padding: 50px;
       background-color: transparent;
       border: none;
-      color: $color-light-1;
+      color: $light;
       rotate: 90deg;
       transition: all 0.3s;
       cursor: pointer;
@@ -109,7 +109,7 @@
         left: 50%;
         transition: 0.3s all;
         box-shadow: 0 0 5px $secondary;
-        background-color: $color-light-1;
+        background-color: $light;
       }
 
       .line-1 {

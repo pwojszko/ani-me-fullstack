@@ -15,7 +15,7 @@
       border: none;
       border-radius: $radius-1;
       background-color: $primary;
-      color: $color-light-1;
+      color: $light;
 
       &:focus {
         & + .search__list {
@@ -43,7 +43,7 @@
           display: block;
           padding: 20px;
           border-radius: $radius-1;
-          color: $color-light-1;
+          color: $light;
           background-color: rgba($primary, 0.7);
           transition: all 0.3s;
 
