@@ -33,7 +33,7 @@
     }
   }
 
-  background: linear-gradient(90deg, $primary, $color-3, $color-3, $primary);
+  background: linear-gradient(90deg, $primary, $red, $red, $primary);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
 }
