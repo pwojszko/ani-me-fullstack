@@ -1,10 +1,11 @@
-$primary: rgba(20, 20, 20, 1); // 60%
-$secondary: rgba(10, 10, 10, 1); // 30%
-$red: rgba(150, 20, 20, 1); // 10%
-$light-red: rgba(220, 20, 20, 1); // 10%
-$light: rgba(230, 230, 230, 1);
+$primary: #141414; // 60%
+$secondary: #0a0a0a; // 30%
+$red: #961414; // 10%
 
-$error: rgba(250, 20, 20, 1);
+$light-red: #dc1414;
+$light: #e6e6e6;
+
+$error: #fa1414;
 
 //old
 $color-1: rgba(220, 20, 20, 1);
@@ -21,14 +22,14 @@ $color-dark-4: rgba(35, 35, 35, 1);
 $watermark-color-1: rgba(255, 255, 255, 0.05);
 
 //old
-$radius-1: 15px;
-$radius-2: 30px;
+$radius-1: 1.5rem;
+$radius-2: 3rem;
 
-$padding-1: 25px;
-$padding-2: 50px;
+$padding-1: 2.5rem;
+$padding-2: 5rem;
 
-$spacing-1: 5px;
-$spacing-2: 10px;
-$spacing-3: 15px;
-$spacing-4: 25px;
-$spacing-5: 35px;
+$spacing-1: 0.5rem;
+$spacing-2: 1rem;
+$spacing-3: 1.5rem;
+$spacing-4: 2.5rem;
+$spacing-5: 3.5rem;

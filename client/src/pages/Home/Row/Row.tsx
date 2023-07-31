@@ -2,7 +2,7 @@ import { useGetAnimeListQuery } from "../../../store/anime/animeService";
 import classNames from "classnames/bind";
 import styles from "./Row.module.scss";
 import Carousel from "../../../components/Carousel/Carousel";
-import { Anime } from "@store/anime/AnimeTypes";
+import { Anime } from "src/store/anime/AnimeTypes";
 import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);

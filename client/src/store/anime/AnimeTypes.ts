@@ -40,10 +40,30 @@ export type Character = {
 export type Anime = {
   mal_id: number;
   url: string;
-  images: { [key: string]: Image };
-  trailer: Trailer;
+  images: {
+    [key: string]: {
+      image_url: string;
+      small_image_url: string;
+      large_image_url: string;
+    };
+  };
+  trailer: {
+    youtube_id: string;
+    url: string;
+    embed_url: string;
+    images: {
+      image_url: string;
+      small_image_url: string;
+      medium_image_url: string;
+      large_image_url: string;
+      maximum_image_url: string;
+    };
+  };
   approved: boolean;
-  titles: Title[];
+  titles: {
+    type: string;
+    title: string;
+  }[];
   title: string;
   title_english: string;
   title_japanese: string;
@@ -53,7 +73,23 @@ export type Anime = {
   episodes: number;
   status: string;
   airing: boolean;
-  aired: Aired;
+  aired: {
+    from: Date;
+    to: Date;
+    prop: {
+      from: {
+        day: number;
+        month: number;
+        year: number;
+      };
+      to: {
+        day: number;
+        month: number;
+        year: number;
+      };
+    };
+    string: string;
+  };
   duration: string;
   rating: string;
   score: number;
@@ -66,70 +102,63 @@ export type Anime = {
   background: string;
   season: string;
   year: number;
-  broadcast: Broadcast;
-  producers: Genre[];
-  licensors: Genre[];
-  studios: Genre[];
-  genres: Genre[];
+  broadcast: {
+    day: string;
+    time: string;
+    timezone: string;
+    string: string;
+  };
+  producers: {
+    mal_id: number;
+    type: string;
+    name: string;
+    url: string;
+  }[];
+  licensors: {
+    mal_id: number;
+    type: string;
+    name: string;
+    url: string;
+  }[];
+  studios: {
+    mal_id: number;
+    type: string;
+    name: string;
+    url: string;
+  }[];
+  genres: {
+    mal_id: number;
+    type: string;
+    name: string;
+    url: string;
+  }[];
   explicit_genres: any[];
-  themes: Genre[];
+  themes: {
+    mal_id: number;
+    type: string;
+    name: string;
+    url: string;
+  }[];
   demographics: any[];
-};
-
-export type Aired = {
-  from: Date;
-  to: Date;
-  prop: Prop;
-  string: string;
-};
-
-export type Prop = {
-  from: From;
-  to: From;
-};
-
-export type From = {
-  day: number;
-  month: number;
-  year: number;
-};
-
-export type Broadcast = {
-  day: string;
-  time: string;
-  timezone: string;
-  string: string;
-};
-
-export type Genre = {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-};
-
-export type Image = {
-  image_url: string;
-  small_image_url: string;
-  large_image_url: string;
-};
-
-export type Title = {
-  type: string;
-  title: string;
-};
-
-export type Trailer = {
-  youtube_id: string;
-  url: string;
-  embed_url: string;
-  images: Images;
-};
-
-export type Images = {
-  image_url: string;
-  small_image_url: string;
-  medium_image_url: string;
-  large_image_url: string;
-  maximum_image_url: string;
+  relations: {
+    relation: string;
+    entry: {
+      mal_id: string;
+      type: string;
+      name: string;
+      url: string;
+    }[];
+  }[];
+  theme: {
+    openings: string[];
+    endings: string[];
+  };
+  external: {
+    name: string;
+    url: string;
+  }[];
+  streaming: {
+    name: string;
+    url: string;
+  }[];
 };

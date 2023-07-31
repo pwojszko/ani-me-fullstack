@@ -4,12 +4,12 @@ import styles from "./Parameters.module.scss";
 
 const cx = classNames.bind(styles);
 
-const Parameters = ({ data }: { data?: Anime }) => {
+const Parameters = ({ anime }: { anime: Anime }) => {
   const parametersList = [
-    { text: "Type", api: data?.type },
-    { text: "Episodes", api: data?.episodes },
-    { text: "Score", api: data?.score },
-    { text: "Year", api: data?.year },
+    { text: "Type", api: anime.type },
+    { text: "Episodes", api: anime.episodes },
+    { text: "Score", api: anime.score },
+    { text: "Year", api: anime.year },
   ];
 
   return (

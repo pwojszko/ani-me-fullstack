@@ -4,25 +4,25 @@ import styles from "./Characters.module.scss";
 
 const cx = classNames.bind(styles);
 
-const Character = ({ data }: { data: Character }) => {
+const CharacterCard = ({ character }: { character: Character }) => {
   return (
     <div className={cx("character")}>
       <div className={cx("character-item")}>
         <div className={cx("character-text")}>
           <div className={cx("title-container")}>
             <div className={cx("line")}></div>
-            <p className={cx("character-title")}>{data.character.name}</p>
+            <p className={cx("character-title")}>{character.character.name}</p>
           </div>
           <img
             className={cx("character-image")}
-            src={data.character.images.webp.image_url}
-            alt={data.character.name}
+            src={character.character.images.webp.image_url}
+            alt={character.character.name}
           />
           <div className={cx("subtitle-container")}>
             <div className={cx("line")}></div>
             <p className={cx("character-subtitle")}>
-              {data.voice_actors[0]?.person?.name &&
-                `Voice actor: ${data.voice_actors[0]?.person?.name}`}
+              {character.voice_actors[0]?.person?.name &&
+                `Voice actor: ${character.voice_actors[0]?.person?.name}`}
             </p>
           </div>
         </div>
@@ -31,4 +31,4 @@ const Character = ({ data }: { data: Character }) => {
   );
 };
 
-export default Character;
+export default CharacterCard;

@@ -1,7 +1,10 @@
 @import "src/assets/scss/abstracts/variables";
 @import "src/assets/scss/abstracts/mixins";
+@import "src/assets/scss/base/animations";
 
 .home-page {
+  @include page-appear-animation;
+
   .main {
     max-width: 100vw;
   }

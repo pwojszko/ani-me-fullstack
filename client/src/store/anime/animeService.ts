@@ -7,11 +7,11 @@ export const animeApi = createApi({
   baseQuery: baseQuery({ baseUrl: "https://api.jikan.moe/v4", maxRetries: 5 }),
   endpoints: (builder) => ({
     getAnimeById: builder.query<Anime, string | number>({
-      query: (id) => `anime/${id}`,
+      query: (id) => `/anime/${id}/full`,
       transformResponse: (response: { data: Anime }) => response.data,
     }),
     getAnimeCharacters: builder.query<Character[], string | number>({
-      query: (id) => `anime/${id}/characters`,
+      query: (id) => `/anime/${id}/characters`,
       transformResponse: (response: { data: Character[] }) => response.data,
     }),
     getAnimeList: builder.query<Anime[], string>({

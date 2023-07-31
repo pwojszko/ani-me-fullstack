@@ -5,8 +5,8 @@ import styles from "./Video.module.scss";
 
 const cx = classNames.bind(styles);
 
-const Video = ({ data }: { data?: Anime }) => {
-  const youtubeId = data?.trailer.youtube_id;
+const Video = ({ anime }: { anime: Anime }) => {
+  const youtubeId = anime.trailer.youtube_id;
 
   return (
     <div className={cx("video")}>

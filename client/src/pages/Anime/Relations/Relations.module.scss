@@ -1,0 +1,72 @@
+@import "src/assets/scss/abstracts/variables";
+
+.relations {
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  place-content: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+
+  .relation-card {
+    position: relative;
+    display: grid;
+    grid-template-areas:
+      "button type"
+      "button relation"
+      "button title";
+    grid-template-columns: 5rem 1fr;
+    column-gap: 2rem;
+    width: 250px;
+
+    .button {
+      grid-area: button;
+      background-color: $red;
+      padding: 5px;
+      border: none;
+      border-radius: 1rem;
+      transition: all 0.3s;
+      color: $light;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $light-red;
+      }
+    }
+
+    .type {
+      position: relative;
+      grid-area: type;
+      transition: all 0.3s;
+      font-size: 1.4rem;
+    }
+
+    .relation {
+      transition: all 0.3s;
+      grid-area: relation;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .title {
+      transition: all 0.3s;
+      grid-area: title;
+      padding-top: 2rem;
+    }
+
+    &:hover {
+      .type {
+        border-color: $light-red;
+      }
+
+      .relation {
+        border-color: $light-red;
+      }
+
+      .title {
+        border-color: $light-red;
+      }
+    }
+  }
+}

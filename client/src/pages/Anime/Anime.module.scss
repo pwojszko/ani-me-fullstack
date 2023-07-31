@@ -1,9 +1,12 @@
 @import "src/assets/scss/abstracts/variables";
 @import "src/assets/scss/abstracts/mixins";
+@import "src/assets/scss/base/animations";
 
 .anime {
   max-width: 100vw;
   overflow-x: hidden;
+
+  @include page-appear-animation;
 
   .article {
     max-width: 1170px;
@@ -13,7 +16,7 @@
     .watermark {
       position: fixed;
       left: 0;
-      font-size: 200px;
+      font-size: 20rem;
       color: rgba($color-light-1, 0.05);
       z-index: -1;
       transform: rotate(15deg);

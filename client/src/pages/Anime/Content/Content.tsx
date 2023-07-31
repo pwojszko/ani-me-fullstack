@@ -13,7 +13,7 @@ import styles from "./Content.module.scss";
 
 const cx = classNames.bind(styles);
 
-const Content = ({ data }: { data?: Anime }) => {
+const Content = ({ anime }: { anime: Anime }) => {
   const [isWatched, setIsWatched] = useState(false);
 
   const isAuth = useAppSelector((state) => !!state.auth.token);
@@ -38,8 +38,8 @@ const Content = ({ data }: { data?: Anime }) => {
   return (
     <div className={cx("content")}>
       <div className={cx("content-part")}>
-        <h1 className={cx("title")}>{data?.title}</h1>
-        <p className={cx("text")}>{data?.synopsis}</p>
+        <h1 className={cx("title")}>{anime?.title}</h1>
+        <p className={cx("text")}>{anime?.synopsis}</p>
       </div>
       <div className={cx("container")}>
         {isAuth && (
@@ -49,7 +49,7 @@ const Content = ({ data }: { data?: Anime }) => {
                 scorePoints={[5, 4, 3, 2, 1]}
                 animeId={id}
                 userId={userId}
-                data={data}
+                anime={anime}
               /> */}
 
               <button
@@ -64,8 +64,8 @@ const Content = ({ data }: { data?: Anime }) => {
         <div className={cx("image-container")}>
           <img
             className={cx("image")}
-            src={data?.images?.webp?.image_url}
-            alt={data?.title}
+            src={anime.images.webp.image_url}
+            alt={anime.title}
           />
           {isWatched && (
             <span className={cx("is-watched")}>
