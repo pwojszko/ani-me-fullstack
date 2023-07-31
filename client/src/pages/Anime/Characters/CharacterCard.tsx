@@ -4,7 +4,11 @@ import styles from "./Characters.module.scss";
 
 const cx = classNames.bind(styles);
 
-const CharacterCard = ({ character }: { character: Character }) => {
+type CharacterCardProps = {
+  character: Character;
+};
+
+const CharacterCard = ({ character }: CharacterCardProps) => {
   return (
     <div className={cx("character")}>
       <div className={cx("character-item")}>

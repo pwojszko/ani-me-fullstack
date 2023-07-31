@@ -17,14 +17,15 @@ const cx = classNames.bind(styles);
 const Anime = () => {
   const { id } = useParams();
   const { data: anime } = useGetAnimeByIdQuery(id ?? skipToken);
-  const { data: characters } = useGetAnimeCharactersQuery(id ?? skipToken);
+  const { data: characters, isLoading: areCharactersLoading } =
+    useGetAnimeCharactersQuery(id ?? skipToken);
 
   return (
     <div className={cx("anime")}>
       <article className={cx("article")}>
         <p className={cx("watermark")}>{anime?.title_japanese}</p>
         {anime && <Content anime={anime} />}
-        {characters && <Characters characters={characters} />}
+        <Characters characters={characters} isLoading={areCharactersLoading} />
         {anime && <Relations anime={anime} />}
         {anime && <Parameters anime={anime} />}
         {anime && <Video anime={anime} />}
