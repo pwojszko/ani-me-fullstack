@@ -17,7 +17,7 @@ const AuthorizedNavigation = ({
 }: AuthorizedNavigationProps) => {
   return (
     <>
-      <Link to="/userpanel" onClick={closeHeader}>
+      <Link to="/profile" onClick={closeHeader}>
         <div className={cx("item")}>
           <BsPersonLinesFill />
           <SlidingButton

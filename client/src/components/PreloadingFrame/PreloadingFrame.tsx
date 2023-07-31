@@ -4,21 +4,21 @@ import styles from "./PreloadingFrame.module.scss";
 const cx = classNames.bind(styles);
 
 type PreloadingFrameProps = {
-  width: number;
-  height: number;
+  width?: string;
+  height?: string;
   quantity?: number;
 };
 
 const PreloadingFrame = ({
-  width,
-  height,
+  width = "100%",
+  height = "100%",
   quantity = 1,
 }: PreloadingFrameProps) => {
   if (quantity === 1) {
     return (
       <div
         className={cx("preloading-frame")}
-        style={{ width: `${width}px`, height: `${height}px` }}
+        style={{ width: `${width}`, height: `${height}` }}
       ></div>
     );
   }
@@ -26,7 +26,7 @@ const PreloadingFrame = ({
   return [...(Array(quantity) as number[])].map((_, index) => (
     <div
       className={cx("preloading-frame")}
-      style={{ width: `${width}px`, height: `${height}px` }}
+      style={{ width: `${width}`, height: `${height}` }}
       key={index}
     ></div>
   ));

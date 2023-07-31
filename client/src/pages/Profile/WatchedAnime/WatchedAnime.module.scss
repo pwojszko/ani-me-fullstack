@@ -40,6 +40,7 @@
 
     .watched-anime-card {
       position: relative;
+      width: 100%;
       display: grid;
       grid-template-columns: auto repeat(4, 1fr);
       gap: 20px;
@@ -47,13 +48,6 @@
       padding: $spacing-2;
       background-color: $primary;
       border-radius: $radius-1;
-
-      .loading {
-        position: absolute;
-        inset: 50% 50% auto auto;
-        translate: -50% -50%;
-        animation: loading 1s infinite;
-      }
 
       .image {
         height: 150px;
@@ -76,7 +70,11 @@
         position: absolute;
         inset: 0 0 0 auto;
         place-items: center;
-        background-color: $primary;
+        background-color: $red;
+
+        &:hover {
+          background-color: $light-red;
+        }
       }
     }
   }

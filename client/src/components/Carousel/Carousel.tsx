@@ -69,7 +69,11 @@ const Carousel = ({
             </div>
           ))
         ) : (
-          <PreloadingFrame width={width} height={height} quantity={20} />
+          <PreloadingFrame
+            width={`${width}px`}
+            height={`${height}px`}
+            quantity={20}
+          />
         )}
       </div>
     </section>

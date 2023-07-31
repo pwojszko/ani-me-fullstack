@@ -1,0 +1,20 @@
+@import "src/assets/scss/abstracts/variables";
+
+.profile {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+
+  padding: 125px $padding-1 $padding-1 $padding-1;
+
+  .watermark {
+    height: 100%;
+
+    .title {
+      writing-mode: vertical-rl;
+      font-size: 100px;
+      color: $watermark;
+    }
+  }
+}

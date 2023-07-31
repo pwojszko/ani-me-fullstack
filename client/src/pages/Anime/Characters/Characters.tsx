@@ -11,6 +11,8 @@ type CharactersProps = {
 };
 
 const Characters = ({ characters }: CharactersProps) => {
+  if (characters?.length === 0) return null;
+
   return (
     <div className={cx("characters")}>
       <Carousel width={275} height={430}>

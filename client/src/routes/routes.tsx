@@ -1,7 +1,7 @@
 import Anime from "../pages/Anime/Anime";
 import LoginPage from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import UserPanel from "../pages/UserPanel/UserPanel";
+import Profile from "../pages/Profile/Profile";
 
 export type Permission = "authorized" | "unauthorized";
 
@@ -33,8 +33,8 @@ const routes: Route[] = [
     permissions: ["unauthorized"],
   },
   {
-    path: "/userpanel",
-    element: <UserPanel />,
+    path: "/profile",
+    element: <Profile />,
     permissions: ["authorized"],
   },
 ];
