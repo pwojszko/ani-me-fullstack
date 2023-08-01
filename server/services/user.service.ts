@@ -57,6 +57,26 @@ export async function getWatchedListService(userId: string) {
   }
 }
 
+export async function getWatchedService(userId: string, animeId: string) {
+  try {
+    const user = await UserModel.findById(userId);
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    const watched = user.watched.find((watched) => watched.id === animeId);
+
+    if (!watched) {
+      throw new Error("Anime is not watched yet");
+    }
+
+    return watched;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function addWatchedService(req: {
   userId: string;
   animeId: string;

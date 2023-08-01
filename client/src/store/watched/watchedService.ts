@@ -16,9 +16,16 @@ export const watchedApi = createApi({
   baseQuery: baseQuery({ withToken: true }),
   tagTypes: [TAGS.WATCHED],
   endpoints: (builder) => ({
-    getWatched: builder.query<Watched[], void>({
+    getWatchedList: builder.query<Watched[], void>({
       query: () => ({
-        url: "/watched",
+        url: "/watched-list",
+        method: "GET",
+      }),
+      providesTags: [TAGS.WATCHED],
+    }),
+    getWatched: builder.query<Watched, string>({
+      query: (animeId) => ({
+        url: `/watched/${animeId}`,
         method: "GET",
       }),
       providesTags: [TAGS.WATCHED],
@@ -52,6 +59,7 @@ export const watchedApi = createApi({
 
 export const {
   useGetWatchedQuery,
+  useGetWatchedListQuery,
   usePostAddWatchedMutation,
   usePostRemoveWatchedMutation,
   usePostRateWatchedMutation,

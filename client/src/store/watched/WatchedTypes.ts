@@ -12,6 +12,6 @@ export type RemoveWatchedBody = {
 };
 
 export type RateWatchedBody = {
-  animeId: 51;
-  rate: 5;
+  animeId: string;
+  rate: number;
 };

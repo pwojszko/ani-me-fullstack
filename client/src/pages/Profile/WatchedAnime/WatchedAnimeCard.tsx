@@ -30,7 +30,7 @@ const WatchedAnimeCard = ({ watched }: WatchedAnimeProps) => {
       <p className={cx("title")}>{anime?.title}</p>
 
       <p className={cx("rating")}>
-        {watched.rate ? <strong>{watched.rate} / 10</strong> : null}
+        {watched.rate ? <strong>{watched.rate} / 5</strong> : null}
       </p>
 
       {anime?.mal_id && (

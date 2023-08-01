@@ -2,13 +2,13 @@ import { useState } from "react";
 import WatchedAnimeCard from "./WatchedAnimeCard";
 import classNames from "classnames/bind";
 import styles from "./WatchedAnime.module.scss";
-import { useGetWatchedQuery } from "src/store/watched/watchedService";
+import { useGetWatchedListQuery } from "src/store/watched/watchedService";
 const cx = classNames.bind(styles);
 
 const WatchedAnimeList = () => {
   const [isActive, setIsActive] = useState(false);
 
-  const { data: watchedList } = useGetWatchedQuery();
+  const { data: watchedList } = useGetWatchedListQuery();
 
   const handleClickExpandList = () => {
     setIsActive((prev) => !prev);

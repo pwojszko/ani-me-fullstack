@@ -6,7 +6,8 @@ const userRouter = Router();
 
 userRouter.post("/auth/login", userController.login);
 userRouter.post("/auth/register", userController.register);
-userRouter.get("/watched", auth, userController.getWatchedList);
+userRouter.get("/watched-list", auth, userController.getWatchedList);
+userRouter.get("/watched/:animeId", auth, userController.getWatched);
 userRouter.post("/watched/add", auth, userController.addWatched);
 userRouter.post("/watched/remove", auth, userController.removeWatched);
 userRouter.post("/watched/rate", auth, userController.rateWatched);

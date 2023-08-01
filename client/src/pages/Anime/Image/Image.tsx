@@ -1,54 +1,42 @@
-import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
-import { Anime } from "src/store/anime/AnimeTypes";
-import {
-  usePostAddWatchedMutation,
-  usePostRemoveWatchedMutation,
-} from "src/store/watched/watchedService";
-import styles from "./Image.module.scss";
-import { Watched } from "src/store/watched/WatchedTypes";
 import PreloadingFrame from "src/components/PreloadingFrame/PreloadingFrame";
-import UserActionButtons from "./UserActionButtons";
+import { Anime } from "src/store/anime/AnimeTypes";
+import { Watched } from "src/store/watched/WatchedTypes";
+import ActionButtons from "./ActionButtons.tsx/ActionButtons";
+import styles from "./Image.module.scss";
 
 const cx = classNames.bind(styles);
 
 type ImageProps = {
-  anime?: Anime;
-  animeId?: string;
-  watched?: Watched[];
   isAuth: boolean;
+  isWatched: boolean;
+  anime?: Anime;
+  watched?: Watched;
+  handleRate: (point: number) => void;
+  handleWatch: () => void;
 };
 
-const Image = ({ anime, animeId, watched, isAuth }: ImageProps) => {
-  const [isWatched, setIsWatched] = useState(false);
-
-  const [addWatched] = usePostAddWatchedMutation();
-  const [removeWatched] = usePostRemoveWatchedMutation();
-
-  const handleWatchedButton = (animeId: string) => {
-    if (isWatched) {
-      void removeWatched({ animeId });
-    } else {
-      void addWatched({ animeId });
-    }
-  };
-
-  useEffect(() => {
-    const isWatched = !!watched?.find((item) => item.id === animeId);
-    setIsWatched(isWatched);
-  }, [animeId, watched]);
-
+const Image = ({
+  isAuth,
+  isWatched,
+  anime,
+  watched,
+  handleRate,
+  handleWatch,
+}: ImageProps) => {
   return (
     <div className={cx("container")}>
       {anime ? (
         <>
           {isAuth && (
-            <UserActionButtons
-              handleWatchedButton={handleWatchedButton}
+            <ActionButtons
+              handleRate={handleRate}
+              handleWatch={handleWatch}
+              watchedRate={watched?.rate}
               isWatched={isWatched}
-              animeId={animeId}
             />
           )}
+
           <div className={cx("image-container")}>
             <img
               className={cx("image")}

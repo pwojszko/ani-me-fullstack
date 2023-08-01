@@ -1,0 +1,61 @@
+@import "src/assets/scss/abstracts/variables";
+@import "src/assets/scss/abstracts/mixins";
+@import "src/assets/scss/base/animations";
+
+.buttons-container {
+  position: relative;
+  inset: 12px 8px auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .rating-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    place-content: center;
+    gap: 10px;
+    padding: 10px 7px;
+    background-color: $secondary;
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+
+    .button {
+      background-color: transparent;
+      border: none;
+      color: $light;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &.active {
+        color: $red;
+      }
+
+      &:hover,
+      &:hover ~ button {
+        color: $light-red;
+      }
+    }
+  }
+
+  .button-watched {
+    display: flex;
+    padding: 5px 7px;
+    border: none;
+    background-color: $primary;
+    transition: color 0.3s;
+    font-size: 2rem;
+    color: $light;
+    cursor: pointer;
+
+    &.active {
+      color: $red;
+    }
+
+    &:hover {
+      color: $light-red;
+    }
+  }
+}

@@ -21,7 +21,7 @@ const UserSchema: mongoose.Schema<User> = new mongoose.Schema({
     type: [
       {
         id: { type: String },
-        rate: { type: Number, min: 0, max: 10 },
+        rate: { type: Number, min: 1, max: 5 },
       },
     ],
   },

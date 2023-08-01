@@ -30,6 +30,18 @@ export const getWatchedList = async (req: Request, res: Response) => {
   }
 };
 
+export const getWatched = async (req: Request, res: Response) => {
+  try {
+    const watched = await services.getWatchedService(
+      req.body.userId,
+      req.params.animeId
+    );
+    res.status(200).send(watched);
+  } catch (error) {
+    return res.status(500).send(getErrorMessage(error));
+  }
+};
+
 export const addWatched = async (req: Request, res: Response) => {
   try {
     await services.addWatchedService(req.body);
