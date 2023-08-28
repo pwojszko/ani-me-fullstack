@@ -18,7 +18,7 @@ export const watchedApi = createApi({
   endpoints: (builder) => ({
     getWatchedList: builder.query<Watched[], void>({
       query: () => ({
-        url: "/watched-list",
+        url: "/watched",
         method: "GET",
       }),
       providesTags: [TAGS.WATCHED],
