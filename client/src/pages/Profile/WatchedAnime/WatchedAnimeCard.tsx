@@ -1,10 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
 import SlidingButton from "src/components/SlidingButton/SlidingButton";
 import { useGetAnimeByIdQuery } from "src/store/anime/animeService";
 import { Watched } from "src/store/watched/WatchedTypes";
 import styles from "./WatchedAnime.module.scss";
-import { AiOutlineLoading } from "react-icons/ai";
 import PreloadingFrame from "src/components/PreloadingFrame/PreloadingFrame";
 
 const cx = classNames.bind(styles);

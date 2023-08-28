@@ -21,3 +21,8 @@ $breakpoints: (
     @content;
   }
 }
+
+@mixin page-spacing {
+  max-width: 1170px;
+  padding: 125px 15px;
+}
